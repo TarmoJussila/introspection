@@ -51,4 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e0b1231cec8ce4fa27827f28a1d5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGameState: 0
+  CurrentGameState: 2

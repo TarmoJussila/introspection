@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MusicPlayer: {fileID: 82898434617341914}
-  CurrentMusicType: 0
+  CurrentMusicType: 1
   IntroMusic: {fileID: 0}
   GameMusic: {fileID: 0}
   OutroMusic: {fileID: 0}
