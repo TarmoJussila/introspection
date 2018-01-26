@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     // Start.
     private void Start()
     {
-        CurrentGameState = GameState.Menu;
+        ChangeGameState(CurrentGameState);
     }
 
     // Change game state.
