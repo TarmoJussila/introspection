@@ -39,23 +39,20 @@ public class Player : MonoBehaviour {
 
 	void FixedUpdate () {
 
-		if (inAtmosphere) {
-
-			RaycastHit hit = new RaycastHit ();
-			if (Physics.Raycast (transform.position - transform.up * 2, currentPlanet.position - transform.position, out hit)) {
-				groundNormal = hit.normal;
-			}
-
-			Vector3 targetPos = hit.point + (hit.normal * FloatHeight);
-			targetPos += transform.forward * movementVector.y;
-
-			transform.position = Vector3.MoveTowards (transform.position, targetPos, MoveSpeed);
-
-			Quaternion rot = Quaternion.FromToRotation (transform.up, hit.normal) * transform.rotation;
-			transform.rotation = rot;
-			transform.Rotate (new Vector3 (0, movementVector.x * RotateSpeed, 0));
-		
+		RaycastHit hit = new RaycastHit ();
+		if (Physics.Raycast (transform.position, currentPlanet.position - transform.position, out hit)) {
+			groundNormal = transform.position - hit.point;
 		}
+		Debug.DrawLine (transform.position, hit.point);
+
+		Vector3 targetPos = hit.point + (hit.normal * FloatHeight);
+		targetPos += transform.forward * movementVector.y;
+
+		transform.position = Vector3.MoveTowards (transform.position, targetPos, MoveSpeed);
+
+		Quaternion rot = Quaternion.FromToRotation (transform.up, hit.normal) * transform.rotation;
+		transform.rotation = Quaternion.RotateTowards (transform.rotation, rot, 0.1f);
+		transform.Rotate (new Vector3 (0, movementVector.x * RotateSpeed, 0));
 
 	}
 
@@ -65,7 +62,6 @@ public class Player : MonoBehaviour {
 			inAtmosphere = true;
 			currentPlanet = other.transform;
 		}
-
 
 	}
 
