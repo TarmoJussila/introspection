@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1266955762848042}
+  m_RootGameObject: {fileID: 1167518672300440}
   m_IsPrefabParent: 1
---- !u!1 &1266955762848042
+--- !u!1 &1167518672300440
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4404410839152488}
-  - component: {fileID: 33464148764902120}
-  - component: {fileID: 23824619331461172}
-  - component: {fileID: 114629452447013322}
-  - component: {fileID: 64757777615133096}
-  m_Layer: 8
-  m_Name: Rock
+  - component: {fileID: 4549811771623720}
+  - component: {fileID: 33205563452644598}
+  - component: {fileID: 23817016911378580}
+  - component: {fileID: 64374494282998982}
+  - component: {fileID: 114547014352008648}
+  m_Layer: 0
+  m_Name: highpoly_sphere1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4404410839152488
+--- !u!4 &4549811771623720
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1266955762848042}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5172653, y: 253.99, z: 5.93}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_GameObject: {fileID: 1167518672300440}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 250, y: 250, z: 250}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23824619331461172
+--- !u!23 &23817016911378580
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1266955762848042}
+  m_GameObject: {fileID: 1167518672300440}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -57,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c0a7d3846d845148823ba9a0197a27a, type: 2}
+  - {fileID: 2100000, guid: 2cce43b92bfaaa947af4d5ec01862f2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -65,7 +65,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
@@ -77,19 +77,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33464148764902120
+--- !u!33 &33205563452644598
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1266955762848042}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64757777615133096
+  m_GameObject: {fileID: 1167518672300440}
+  m_Mesh: {fileID: 4300000, guid: 739357831db09a14eaf84f83d6e9fbc0, type: 3}
+--- !u!64 &64374494282998982
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1266955762848042}
+  m_GameObject: {fileID: 1167518672300440}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -97,21 +97,25 @@ MeshCollider:
   m_Convex: 0
   m_InflateMesh: 0
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114629452447013322
+  m_Mesh: {fileID: 4300000, guid: 739357831db09a14eaf84f83d6e9fbc0, type: 3}
+--- !u!114 &114547014352008648
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1266955762848042}
+  m_GameObject: {fileID: 1167518672300440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a1f75d01e779744bbe9fd13ec4993c6, type: 3}
+  m_Script: {fileID: 11500000, guid: d85d65ee02c7e1849be36b8d0437271a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinRockSize: 1
-  MaxRockSize: 15
-  Scale: 0.8
+  spawnsPerLoop: 50
+  Deform: 0
+  SpawnObstacles: 1
+  RockPrefab: {fileID: 1266955762848042, guid: 68284bd8b8f07e246abf8ed1c96268cb, type: 2}
+  CrystalPrefab: {fileID: 1507677605079984, guid: e21b5ab70f747de4f9c0dc949b8d165d,
+    type: 2}
+  Scale: 1
   Speed: 1
   RecalculateNormals: 1
   Planet: {fileID: 0}

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlanetGenerator : MonoBehaviour {
@@ -74,8 +75,12 @@ public class PlanetGenerator : MonoBehaviour {
 	IEnumerator SpawnProps () {
 
 		int spawnsThisLoop = 0;
+		int total = 0;
+		Vector3 last = Vector3.zero;
 
 		foreach (Vector3 vert in baseVertices) {
+
+			if (vert == last) continue;
 
 			int chance = Random.Range (0, 100);
 

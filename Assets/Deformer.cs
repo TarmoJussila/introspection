@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Deformer : MonoBehaviour {
 
+	[Range (0, 3)]
+	public float MinRockSize;
+	[Range (5, 15)]
+	public float MaxRockSize;
+
 	public float Scale = 1;
 	public float Speed = 1;
 	public bool RecalculateNormals = true;
@@ -31,7 +36,7 @@ public class Deformer : MonoBehaviour {
 
 	void DeformMesh () {
 
-		float newScale = Random.Range (3f, 10f);
+		float newScale = Random.Range (MinRockSize, MaxRockSize);
 		transform.localScale = new Vector3 (newScale, newScale, newScale);
 
 		var vertices = new Vector3[baseVertices.Length];
