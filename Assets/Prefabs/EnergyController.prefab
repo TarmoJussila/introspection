@@ -52,5 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentEnergyAmount: 1
-  EnergyDecreaseTime: 0.02
+  EnergyDecreaseTime: 0.01
+  JumpingEnergyDecreaseTime: 0.03
   CrystalEnergyAmount: 0.05
+  MeteoroidDamageAmount: 0.2

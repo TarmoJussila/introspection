@@ -851,6 +851,7 @@ MonoBehaviour:
   MoveSpeed: 0.15
   RotateSpeed: 2
   FloatHeight: 5
+  JumpFloatHeight: 10
   GroundNormal: {x: 0, y: 0, z: 0}
   CurrentPlanet: {fileID: 0}
   InAtmosphere: 0

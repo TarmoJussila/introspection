@@ -10,6 +10,8 @@ public class Asteroid : MonoBehaviour
     public GameObject DeathParticles;
     public Transform projector;
 
+    public float DeathDamageRadius = 7f;
+
     void Start()
     {
 
@@ -27,7 +29,10 @@ public class Asteroid : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
-
+        var cols = Physics.OverlapSphere(transform.position, DeathDamageRadius);
+        foreach (var v in cols)
+            if (v.CompareTag("Player"))
+                v.SendMessage("HitByMeteor");
         GameObject g = (GameObject)Instantiate(DeathParticles, coll.contacts[0].point, Quaternion.identity);
         Destroy(gameObject);
 

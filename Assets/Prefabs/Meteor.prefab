@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 64258211783167762}
   m_Layer: 0
   m_Name: Meteor
-  m_TagString: Untagged
+  m_TagString: Meteor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   DeathParticles: {fileID: 1721252486778384, guid: 507bfd8d8e01b37438de0260015bd9aa,
     type: 2}
   projector: {fileID: 4816080931413940}
+  DeathDamageRadius: 5
 --- !u!119 &119859515269882348
 Projector:
   m_ObjectHideFlags: 1
