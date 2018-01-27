@@ -12,6 +12,9 @@ public class Crystal : MonoBehaviour
 
     public float ConsumeDelayTime = 0.5f;
 
+    public float ConsumeSoundPitchGrowth = 0.1f;
+    public float ConsumeSoundBasePitch = 1.0f;
+
     public Material ConsumedMaterial;
 
     public List<MeshRenderer> MeshRenderers = new List<MeshRenderer>();
@@ -40,6 +43,8 @@ public class Crystal : MonoBehaviour
 
             if (MeshRenderers.Count > 0)
             {
+                int crystalCount = MeshRenderers.Count;
+
                 foreach (var meshRenderer in MeshRenderers)
                 {
                     selectedMeshRenderer = meshRenderer;
@@ -55,7 +60,7 @@ public class Crystal : MonoBehaviour
 
                 EnergyController.Instance.AddEnergy();
 
-                AudioController.Instance.PlaySound(SoundType.Collect);
+                AudioController.Instance.PlaySound(SoundType.Collect, ConsumeSoundBasePitch + crystalCount * ConsumeSoundPitchGrowth);
             }
             else
             {
