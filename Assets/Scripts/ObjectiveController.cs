@@ -17,6 +17,8 @@ public class ObjectiveIndicator
     public float AnimatorSpeed;
     [Range(0f, 1f)]
     public float ProximityFill;
+    [Range(0f, 1f)]
+    public float InterferenceVolume;
 }
 
 /// <summary>
@@ -116,7 +118,11 @@ public class ObjectiveController : MonoBehaviour
         float playbackSpeed = currentIndicator.AnimatorSpeed;
         ObjectiveHandler.Instance.SetIndicatorProximity(playbackSpeed, currentIndicator.ProximityFill);
         grainSettings.intensity = currentIndicator.GrainIntensity;
-        AudioController.Instance.PlaySound(SoundType.Interference, true, 1.0f, false, currentIndicator.ProximityFill);
+
+        if (currentIndicator != DefaultIndicator)
+        {
+            AudioController.Instance.PlaySound(SoundType.Interference, false, 1.0f, false, currentIndicator.InterferenceVolume);
+        }
 
         PostProcessingProfile.grain.settings = grainSettings;
 
