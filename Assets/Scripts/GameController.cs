@@ -42,6 +42,15 @@ public class GameController : MonoBehaviour
         ChangeGameState(CurrentGameState);
     }
 
+    // Update.
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     // Change game state.
     private void ChangeGameState(GameState gameState)
     {
@@ -55,5 +64,11 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadSceneAsync(GameSceneIndex, LoadSceneMode.Single);
         }
+    }
+
+    // Start game.
+    public void StartGame()
+    {
+        ChangeGameState(GameState.Game);
     }
 }
