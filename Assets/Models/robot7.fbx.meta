@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f958b9c8ce206c4f90a8ad763b0ca85
+guid: fe99f81fd0d56b24b8f67d2cc67dd5d7
 timeCreated: 1517068961
 licenseType: Free
 ModelImporter:
@@ -10,8 +10,6 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
-    7400000: Default Take
-    9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -99,7 +97,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
