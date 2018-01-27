@@ -21,6 +21,8 @@ public class Crystal : MonoBehaviour
     public float ConsumeSoundPitchGrowth = 0.15f;
     public float ConsumeSoundBasePitch = 1.0f;
 
+    public float ConsumeSoundVolume = 0.75f;
+
     // Start.
     private void Start()
 	{
@@ -63,7 +65,7 @@ public class Crystal : MonoBehaviour
 
                 EnergyController.Instance.AddEnergy();
                 EnergyHandler.Instance.ShowPlusSign(true);
-                AudioController.Instance.PlaySound(SoundType.Collect, ConsumeSoundBasePitch + (initialCrystalCount - currentCrystalCount) * ConsumeSoundPitchGrowth);
+                AudioController.Instance.PlaySound(SoundType.Collect, ConsumeSoundBasePitch + (initialCrystalCount - currentCrystalCount) * ConsumeSoundPitchGrowth, ConsumeSoundVolume);
             }
             else
             {
