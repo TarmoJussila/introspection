@@ -75,7 +75,7 @@ MonoBehaviour:
   InterferenceFillVariance: 0.1
   InterferenceTime: 0.1
   DistanceCheckWaitTime: 1
-  InitialDistanceCheckWaitTime: 3
+  InitialDistanceCheckWaitTime: 2.5
   Objectives: []
   PostProcessingProfile: {fileID: 11400000, guid: f99fdf647c21fed4cbebfc59b01d65bc,
     type: 2}

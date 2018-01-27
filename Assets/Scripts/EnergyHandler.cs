@@ -25,6 +25,7 @@ public class EnergyHandler : MonoBehaviour
     // Start.
     private void Start()
     {
+        SetEnergyAmount(energyFillMax);
         ShowWarning(false);
     }
 
@@ -51,5 +52,11 @@ public class EnergyHandler : MonoBehaviour
     public void ShowWarning(bool isVisible)
     {
         EnergyWarning.gameObject.SetActive(isVisible);
+    }
+
+    // Set energy amount.
+    public void SetEnergyAmount(float energyAmount)
+    {
+        EnergyFill.fillAmount = Mathf.Clamp(energyAmount, energyFillMin, energyFillMax);
     }
 }
