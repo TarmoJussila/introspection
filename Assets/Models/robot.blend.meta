@@ -6,10 +6,19 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cube
+    100004: Extrude_2
     400000: //RootNode
+    400002: Cube
+    400004: Extrude_2
     2300000: //RootNode
+    2300002: Cube
+    2300004: Extrude_2
     3300000: //RootNode
+    3300002: Cube
+    3300004: Extrude_2
     4300000: Cube
+    4300002: Extrude_2
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -21,6 +30,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Base
     second: {fileID: 2100000, guid: a5605050b1283ea4197383b4f9f38cc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: default
+    second: {fileID: 2100000, guid: 07824246e2f715143be9be6cef760c07, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
