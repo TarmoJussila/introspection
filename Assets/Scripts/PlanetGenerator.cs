@@ -3,107 +3,137 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PlanetGenerator : MonoBehaviour {
+/// <summary>
+/// Planet generator. Generates planet and objects on it.
+/// </summary>
+public class PlanetGenerator : MonoBehaviour
+{
+    [Header("Settings")]
+    public int SpawnsPerLoop = 50;
 
-	// Settings
+    public bool Deform = false;
+    public bool SpawnObstacles = true;
 
-	public int spawnsPerLoop = 10;
+    public GameObject RockPrefab;
+    public GameObject CrystalPrefab;
+    public GameObject ObjectivePrefab;
 
-	public bool Deform = false;
-	public bool SpawnObstacles = true;
+    [Header("Deformation")]
+    public float Scale = 1;
+    public float Speed = 1;
+    public bool RecalculateNormals = true;
 
-	public GameObject RockPrefab;
-	public GameObject CrystalPrefab;
+    private List<Vector3> baseVertices = new List<Vector3>();
+    private Perlin noise = new Perlin();
 
-	// Deforming vars
+    [Header("Planet")]
+    public GameObject Planet;
 
-	public float Scale = 1;
-	public float Speed = 1;
-	public bool RecalculateNormals = true;
+    private MeshRenderer renderer;
+    private Mesh mesh;
+    private MeshCollider collider;
 
-	private Vector3[] baseVertices;
-	private Perlin noise = new Perlin ();
+    private Transform planetObjectContainer;
 
-	// Planet vars
+    // Start.
+    private void Start()
+    {
+        if (Planet == null) Planet = gameObject;
 
-	public GameObject Planet;
+        planetObjectContainer = new GameObject("PlanetObjects").transform;
 
-	private MeshRenderer renderer;
-	private Mesh mesh;
-	private MeshCollider collider;
+        Mesh mesh = Planet.GetComponent<MeshFilter>().mesh;
+        var baseVerticesArray = mesh.vertices;
+        baseVertices = baseVerticesArray.ToList();
 
-	// Use this for initialization
-	void Start () {
+        collider = GetComponent<MeshCollider>();
 
-		if (Planet == null) Planet = gameObject;
+        SpawnObjectives();
 
-		Mesh mesh = Planet.GetComponent<MeshFilter> ().mesh;
-		baseVertices = mesh.vertices;
+        if (Deform) DeformMesh();
+        if (SpawnObstacles) StartCoroutine(SpawnProps());
+    }
 
-		collider = GetComponent<MeshCollider> ();
+    // Deform mesh.
+    private void DeformMesh()
+    {
+        var vertices = new Vector3[baseVertices.Count];
 
-		if (Deform) DeformMesh ();
-		if (SpawnObstacles) StartCoroutine( SpawnProps ());
+        var timex = Time.time * Speed;
+        var timey = Time.time * Speed;
+        var timez = Time.time * Speed;
 
-	}
+        for (var i = 0; i < vertices.Length; i++)
+        {
+            var vertex = baseVertices[i];
 
-	void DeformMesh () {
+            vertex.x += noise.Noise(timex + vertex.x, timex + vertex.y, timex + vertex.z) * Scale;
+            vertex.y += noise.Noise(timey + vertex.x, timey + vertex.y, timey + vertex.z) * Scale;
+            vertex.z += noise.Noise(timez + vertex.x, timez + vertex.y, timez + vertex.z) * Scale;
 
-		var vertices = new Vector3[baseVertices.Length];
+            vertices[i] = vertex;
+        }
 
-		var timex = Time.time * Speed;
-		var timey = Time.time * Speed;
-		var timez = Time.time * Speed;
-		for (var i = 0; i < vertices.Length; i++) {
-			var vertex = baseVertices [i];
+        mesh.vertices = vertices;
 
-			vertex.x += noise.Noise (timex + vertex.x, timex + vertex.y, timex + vertex.z) * Scale;
-			vertex.y += noise.Noise (timey + vertex.x, timey + vertex.y, timey + vertex.z) * Scale;
-			vertex.z += noise.Noise (timez + vertex.x, timez + vertex.y, timez + vertex.z) * Scale;
+        if (RecalculateNormals) mesh.RecalculateNormals();
+        mesh.RecalculateBounds();
+        collider.sharedMesh = mesh;
+    }
 
-			vertices [i] = vertex;
-		}
+    // Spawn objectives.
+    private void SpawnObjectives()
+    {
+        int objectiveAmount = ObjectiveController.Instance.ObjectivePointAmount;
 
-		mesh.vertices = vertices;
+        for (int i = 0; i < objectiveAmount; i++)
+        {
+            int randomIndex = Random.Range(0, baseVertices.Count);
 
-		if (RecalculateNormals) mesh.RecalculateNormals ();
-		mesh.RecalculateBounds ();
-		collider.sharedMesh = mesh;
+            var randomVertice = baseVertices[randomIndex];
 
-	}
+            var objective = (GameObject)Instantiate(ObjectivePrefab, randomVertice * transform.localScale.x, Quaternion.identity);
+            objective.transform.SetParent(ObjectiveController.Instance.transform);
+            objective.transform.up = (objective.transform.position - transform.position).normalized;
 
-	IEnumerator SpawnProps () {
+            baseVertices.RemoveAt(randomIndex);
 
-		int spawnsThisLoop = 0;
-		int total = 0;
-		Vector3 last = Vector3.zero;
+            ObjectiveController.Instance.Objectives.Add(objective);
+        }
+    }
 
-		foreach (Vector3 vert in baseVertices) {
+    // Spawn props.
+    private IEnumerator SpawnProps()
+    {
+        int spawnsThisLoop = 0;
+        int total = 0;
+        Vector3 last = Vector3.zero;
 
-			if (vert == last) continue;
+        foreach (Vector3 vertice in baseVertices)
+        {
+            if (vertice == last) continue;
 
-			int chance = Random.Range (0, 100);
+            int chance = Random.Range(0, 100);
 
-			if (chance < 7) {
-				
-				var prop = (GameObject)Instantiate (CrystalPrefab, vert * transform.localScale.x, Quaternion.identity);
-				prop.transform.up = (prop.transform.position - transform.position).normalized;
+            if (chance < 7)
+            {
+                var prop = (GameObject)Instantiate(CrystalPrefab, vertice * transform.localScale.x, Quaternion.identity);
+                prop.transform.SetParent(planetObjectContainer);
+                prop.transform.up = (prop.transform.position - transform.position).normalized;
+            }
+            else if (chance < 35)
+            {
+                var prop = (GameObject)Instantiate(RockPrefab, vertice * transform.localScale.x, Quaternion.identity);
+                prop.transform.SetParent(planetObjectContainer);
+                prop.transform.rotation = Random.rotation;
+            }
 
-			} else if (chance < 35) {
-
-				var prop = (GameObject)Instantiate (RockPrefab, vert * transform.localScale.x, Quaternion.identity);
-				//prop.transform.up = (prop.transform.position - transform.position).normalized;
-				prop.transform.rotation = Random.rotation;
-
-			}
-
-			spawnsThisLoop++;
-			if (spawnsThisLoop >= spawnsPerLoop) {
-				spawnsThisLoop = 0;
-				yield return null;
-			}
-		
-		}	
-	
-	}
+            spawnsThisLoop++;
+            if (spawnsThisLoop >= SpawnsPerLoop)
+            {
+                spawnsThisLoop = 0;
+                yield return null;
+            }
+        }
+    }
 }

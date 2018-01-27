@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentObjective: 0
+  ObjectiveAnimator: {fileID: 95755757806826630}
   CollectObjective: {fileID: 114593560460579874}
   TransmissionObjective: {fileID: 114594243359397340}
 --- !u!114 &114277159161233850
