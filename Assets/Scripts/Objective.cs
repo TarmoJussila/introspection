@@ -21,8 +21,10 @@ public class Objective : MonoBehaviour
         if (!IsActivated && otherCollider.CompareTag("Player"))
         {
             Light.SetActive(true);
-
+            
             IsActivated = true;
+
+            AudioController.Instance.PlaySound(SoundType.Objective);
         }
     }
 }

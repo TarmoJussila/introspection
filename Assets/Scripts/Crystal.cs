@@ -54,6 +54,8 @@ public class Crystal : MonoBehaviour
                 }
 
                 EnergyController.Instance.AddEnergy();
+
+                AudioController.Instance.PlaySound(SoundType.Collect);
             }
             else
             {
