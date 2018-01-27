@@ -54,6 +54,8 @@ public class Crystal : MonoBehaviour
                 }
 
                 EnergyController.Instance.AddEnergy();
+
+                AudioController.Instance.PlaySound(SoundType.Collect);
             }
             else
             {
@@ -71,6 +73,8 @@ public class Crystal : MonoBehaviour
         if (otherCollider.CompareTag("Player"))
         {
             IsConsuming = true;
+
+            StopAllCoroutines();
 
             StartCoroutine(CheckConsumeState());
         }

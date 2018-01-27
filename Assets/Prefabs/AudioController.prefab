@@ -389,7 +389,8 @@ MonoBehaviour:
   GameMusic: {fileID: 8300000, guid: 5e1ec2a41d2447d448fac4b2301b6fef, type: 3}
   OutroMusic: {fileID: 0}
   SoundPlayer: {fileID: 82665648430038958}
-  CollectSound: {fileID: 0}
+  CollectSound: {fileID: 8300000, guid: 2930aec036a25df4980e5ca9ff1fedcf, type: 3}
+  ObjectiveSound: {fileID: 8300000, guid: 831caa6dec5fa514e8391f63586c0372, type: 3}
   TransmissionSound: {fileID: 0}
   MeteoroidSound: {fileID: 0}
   VolumeVarianceMin: 0.8

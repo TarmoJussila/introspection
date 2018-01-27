@@ -18,6 +18,7 @@ public enum MusicType
 public enum SoundType
 {
     Collect,
+    Objective,
     Transmission,
     Meteoroid,
 }
@@ -47,6 +48,7 @@ public class AudioController : MonoBehaviour
     public AudioSource SoundPlayer;
 
     public AudioClip CollectSound;
+    public AudioClip ObjectiveSound;
     public AudioClip TransmissionSound;
     public AudioClip MeteoroidSound;
 
@@ -124,6 +126,11 @@ public class AudioController : MonoBehaviour
             case SoundType.Collect:
             {
                 soundClip = CollectSound;
+                break;
+            }
+            case SoundType.Objective:
+            {
+                soundClip = ObjectiveSound;
                 break;
             }
             case SoundType.Transmission:
