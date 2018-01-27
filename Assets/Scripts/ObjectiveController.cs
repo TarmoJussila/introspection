@@ -22,12 +22,12 @@ public class ObjectiveController : MonoBehaviour
     // Start.
     private void Start()
 	{
-		
+        StartCoroutine(CheckObjectiveDistance());
 	}
-	
-	// Update.
-	private void Update()
-	{
-		
-	}
+
+    // Check objective distance.
+    private IEnumerator CheckObjectiveDistance()
+    {
+        yield return null;
+    }
 }
