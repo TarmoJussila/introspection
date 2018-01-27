@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Game states.
@@ -20,25 +21,39 @@ public class GameController : MonoBehaviour
 
     public GameState CurrentGameState;
 
-    public bool IsCursorVisible = false;
+    public int MenuSceneIndex = 0;
+    public int GameSceneIndex = 1;
+
+    public bool IsCursorVisibleInGame = false;
 
     // Awake.
     private void Awake()
     {
         Instance = this;
+
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start.
     private void Start()
     {
-        Cursor.visible = IsCursorVisible;
-
+        Debug.unityLogger.logEnabled = Debug.isDebugBuild;
+        
         ChangeGameState(CurrentGameState);
     }
 
     // Change game state.
     private void ChangeGameState(GameState gameState)
     {
+        var previousGameState = CurrentGameState;
+
         CurrentGameState = gameState;
+
+        Cursor.visible = (CurrentGameState != GameState.Menu) ? IsCursorVisibleInGame : true;
+
+        if (previousGameState == GameState.Menu && CurrentGameState == GameState.Game)
+        {
+            SceneManager.LoadSceneAsync(GameSceneIndex, LoadSceneMode.Single);
+        }
     }
 }
