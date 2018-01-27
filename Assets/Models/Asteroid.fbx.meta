@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 2f958b9c8ce206c4f90a8ad763b0ca85
-timeCreated: 1517068961
+guid: 9bf2b88bb870a824eb48a8e885bb649a
+timeCreated: 1517075266
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -9,25 +9,14 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube
-    7400000: Default Take
+    4300000: asteroid_uv:Group1
     9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Accent
-    second: {fileID: 2100000, guid: 1b24b4ef5f2621d4fa378b66cbb387d4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Robotbase
-    second: {fileID: 2100000, guid: 6308c377e70ccbd4f918231a9dae1ae6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Vents
-    second: {fileID: 2100000, guid: 8aa57a3bda477a64fb9eeccab3c897f8, type: 2}
+      name: lambert2
+    second: {fileID: 2100000, guid: 2897fa14a25479b4f8fba6683daf81f4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
