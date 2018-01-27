@@ -20,8 +20,6 @@ public class Player : MonoBehaviour
     private Vector2 movementVector;
     private Vector3 groundNormal;
 
-    private Collider collider;
-
     public Transform CurrentPlanet;
     public bool InAtmosphere;
 
@@ -36,7 +34,6 @@ public class Player : MonoBehaviour
     // Start.
     private void Start()
     {
-        collider = GetComponent<Collider>();
     }
 
     // Update.
@@ -48,6 +45,7 @@ public class Player : MonoBehaviour
         FloatHeight = Mathf.Sin(Time.time) + 3;
     }
 
+    // Fixed update.
     private void FixedUpdate()
     {
         RaycastHit hit = new RaycastHit();
@@ -66,19 +64,5 @@ public class Player : MonoBehaviour
         Quaternion rot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 0.1f);
         transform.Rotate(new Vector3(0, Input.GetAxisRaw(RotateAxis) * RotateSpeed, 0));
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("atmosphere"))
-        {
-            InAtmosphere = true;
-            CurrentPlanet = other.transform;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("atmosphere")) InAtmosphere = false;
     }
 }

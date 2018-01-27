@@ -35,7 +35,7 @@ public class ObjectiveController : MonoBehaviour
     public float DistanceCheckWaitTime = 1.0f;
     public float InitialDistanceCheckWaitTime = 3.0f;
 
-    public List<GameObject> Objectives = new List<GameObject>();
+    public List<Objective> Objectives = new List<Objective>();
 
     [Header("Post Processing")]
     public PostProcessingProfile PostProcessingProfile;
@@ -69,9 +69,11 @@ public class ObjectiveController : MonoBehaviour
     {
         float closestDistance = float.MaxValue;
 
+        bool isAnyObjectiveAvailable = false;
+
         foreach (var objective in Objectives)
         {
-            if (objective.activeSelf)
+            if (!objective.IsActivated)
             {
                 float distance = Vector3.Distance(Player.Instance.transform.position, objective.transform.position);
 
@@ -79,6 +81,8 @@ public class ObjectiveController : MonoBehaviour
                 {
                     closestDistance = distance;
                 }
+
+                isAnyObjectiveAvailable = true;
             }
         }
 
@@ -111,7 +115,7 @@ public class ObjectiveController : MonoBehaviour
 
         PostProcessingProfile.grain.settings = grainSettings;
 
-        Debug.Log("Closest distance: " + closestDistance);
+        Debug.Log("Closest distance: " + closestDistance + " / Objectives available: " + isAnyObjectiveAvailable);
 
         yield return new WaitForSeconds(DistanceCheckWaitTime);
 
