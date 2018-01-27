@@ -11,6 +11,8 @@ public class EnergyController : MonoBehaviour
 
     public static bool IsJumping { get; set; }
 
+    public static bool IsSprinting { get; set; }
+
     [Range(0.1f, 1.0f)]
     public float CurrentEnergyAmount = 1.0f;
 
@@ -19,6 +21,12 @@ public class EnergyController : MonoBehaviour
 
     [Range(0.005f, 0.1f)]
     public float JumpingEnergyDecreaseTime = 0.17f;
+
+    [Range(0.005f, 0.1f)]
+    public float SprintingEnergyDecreaseTime = 0.17f;
+
+    [Range(0.005f, 0.1f)]
+    public float MaximumEnergyDecreaseTime = 0.17f;
 
     [Range(0.01f, 0.5f)]
     public float CrystalEnergyAmount = 0.1f;
@@ -41,7 +49,15 @@ public class EnergyController : MonoBehaviour
     // Update.
     private void Update()
     {
-        if (IsJumping)
+        if (IsJumping && IsSprinting)
+        {
+            CurrentEnergyAmount -= Time.deltaTime * MaximumEnergyDecreaseTime;
+        }
+        else if (IsSprinting)
+        {
+            CurrentEnergyAmount -= Time.deltaTime * SprintingEnergyDecreaseTime;
+        }
+        else if (IsJumping)
         {
             CurrentEnergyAmount -= Time.deltaTime * JumpingEnergyDecreaseTime;
         }

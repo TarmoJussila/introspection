@@ -849,6 +849,7 @@ MonoBehaviour:
   VerticalAxis: Vertical
   RotateAxis: Mouse X
   MoveSpeed: 0.15
+  MoveSpeedSprinting: 0.25
   RotateSpeed: 2
   FloatHeight: 5
   JumpFloatHeight: 10

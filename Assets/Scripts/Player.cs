@@ -14,9 +14,12 @@ public class Player : MonoBehaviour
     public string RotateAxis;
 
     public float MoveSpeed;
+    public float MoveSpeedSprinting;
     public float RotateSpeed;
     public float FloatHeight;
     public float JumpFloatHeight;
+
+    private float currentMoveSpeed;
 
     private Vector2 movementVector;
     private float rotateAmount;
@@ -89,7 +92,16 @@ public class Player : MonoBehaviour
             targetPos = hit.point + (GroundNormal * FloatHeight);
         }
 
-        if 
+        if (Input.GetAxisRaw("RT") > 0)
+        {
+            EnergyController.IsSprinting = true;
+            currentMoveSpeed = MoveSpeedSprinting;
+        }
+        else
+        {
+            EnergyController.IsSprinting = false;
+            currentMoveSpeed = MoveSpeed;
+        }
            
 
         hit = new RaycastHit();
@@ -134,7 +146,7 @@ public class Player : MonoBehaviour
             targetPos += transform.right * movementVector.x;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, MoveSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, currentMoveSpeed);
 
         
     }

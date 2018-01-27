@@ -54,5 +54,7 @@ MonoBehaviour:
   CurrentEnergyAmount: 1
   EnergyDecreaseTime: 0.01
   JumpingEnergyDecreaseTime: 0.03
+  SprintingEnergyDecreaseTime: 0.02
+  MaximumEnergyDecreaseTime: 0.04
   CrystalEnergyAmount: 0.05
   MeteoroidDamageAmount: 0.2
