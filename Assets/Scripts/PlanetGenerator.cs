@@ -6,6 +6,8 @@ public class PlanetGenerator : MonoBehaviour {
 
 	// Settings
 
+	public int spawnsPerLoop = 10;
+
 	public bool Deform = false;
 	public bool SpawnObstacles = true;
 
@@ -40,7 +42,7 @@ public class PlanetGenerator : MonoBehaviour {
 		collider = GetComponent<MeshCollider> ();
 
 		if (Deform) DeformMesh ();
-		if (SpawnObstacles) SpawnProps ();
+		if (SpawnObstacles) StartCoroutine( SpawnProps ());
 
 	}
 
@@ -69,7 +71,9 @@ public class PlanetGenerator : MonoBehaviour {
 
 	}
 
-	void SpawnProps () {
+	IEnumerator SpawnProps () {
+
+		int spawnsThisLoop = 0;
 
 		foreach (Vector3 vert in baseVertices) {
 
@@ -84,9 +88,15 @@ public class PlanetGenerator : MonoBehaviour {
 
 				var prop = (GameObject)Instantiate (RockPrefab, vert * transform.localScale.x, Quaternion.identity);
 				//prop.transform.up = (prop.transform.position - transform.position).normalized;
-				transform.rotation = Random.rotation;
+				prop.transform.rotation = Random.rotation;
 
-			}		
+			}
+
+			spawnsThisLoop++;
+			if (spawnsThisLoop >= spawnsPerLoop) {
+				spawnsThisLoop = 0;
+				yield return null;
+			}
 		
 		}	
 	
