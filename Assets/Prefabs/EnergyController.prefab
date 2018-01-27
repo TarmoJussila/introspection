@@ -51,3 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d51f4ebcd39cb14b93bf86eea579ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentEnergyAmount: 1
+  EnergyDecreaseTime: 0.01
