@@ -396,8 +396,11 @@ MonoBehaviour:
   MeteoroidExplodeSound: {fileID: 8300000, guid: b641e7d6ee10caa49b2690e6afa464a2,
     type: 3}
   ShipExplodeSound: {fileID: 8300000, guid: cbb88a765df0ea14c9ea1d043034860a, type: 3}
-  InterferenceSounds: []
-  VolumeVarianceMin: 0.8
+  InterferenceSounds:
+  - {fileID: 8300000, guid: de5d5ac2daff70543b4d1b14188aa42a, type: 3}
+  - {fileID: 8300000, guid: 18ad9470687e9ba4b92648bd8fcec026, type: 3}
+  - {fileID: 8300000, guid: 353ac850395eb9241a7d33d1890d17f6, type: 3}
+  VolumeVarianceMin: 0.9
   VolumeVarianceMax: 1
-  PitchVarianceMin: 0.8
-  PitchVarianceMax: 1.2
+  PitchVarianceMin: 0.9
+  PitchVarianceMax: 1.1

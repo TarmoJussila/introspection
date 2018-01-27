@@ -116,6 +116,7 @@ public class ObjectiveController : MonoBehaviour
         float playbackSpeed = currentIndicator.AnimatorSpeed;
         ObjectiveHandler.Instance.SetIndicatorProximity(playbackSpeed, currentIndicator.ProximityFill);
         grainSettings.intensity = currentIndicator.GrainIntensity;
+        AudioController.Instance.PlaySound(SoundType.Interference, true, 1.0f, false, currentIndicator.ProximityFill);
 
         PostProcessingProfile.grain.settings = grainSettings;
 
