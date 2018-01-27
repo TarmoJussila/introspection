@@ -521,3 +521,5 @@ MonoBehaviour:
   ConsumeDelayTime: 0.5
   ConsumedMaterial: {fileID: 2100000, guid: 3f1bdf48247e8a0408616a8cdb4fe248, type: 2}
   MeshRenderers: []
+  ConsumeSoundPitchGrowth: 0.15
+  ConsumeSoundBasePitch: 1
