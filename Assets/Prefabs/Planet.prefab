@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 33921629535996676}
   - component: {fileID: 23018728820009796}
   - component: {fileID: 64701072662705918}
-  m_Layer: 0
+  - component: {fileID: 114539268050599180}
+  m_Layer: 8
   m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,24 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b0503b1b84c21aa4b83ca6a83d2fe966, type: 3}
+--- !u!114 &114539268050599180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856663026479674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85d65ee02c7e1849be36b8d0437271a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnsPerLoop: 50
+  Deform: 0
+  SpawnObstacles: 1
+  RockPrefab: {fileID: 1266955762848042, guid: 68284bd8b8f07e246abf8ed1c96268cb, type: 2}
+  CrystalPrefab: {fileID: 1507677605079984, guid: e21b5ab70f747de4f9c0dc949b8d165d,
+    type: 2}
+  Scale: 1
+  Speed: 1
+  RecalculateNormals: 1
+  Planet: {fileID: 0}

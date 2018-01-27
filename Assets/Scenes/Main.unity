@@ -313,10 +313,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1856663026479674, guid: 53c557439d6ccd540ae93f23a108a87c, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53c557439d6ccd540ae93f23a108a87c, type: 2}
   m_IsPrefabParent: 0
@@ -367,28 +363,3 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0379e5555446d474eb52491f47b3db90, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2089603798 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1856663026479674, guid: 53c557439d6ccd540ae93f23a108a87c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1605175093}
---- !u!114 &2089603799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2089603798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d85d65ee02c7e1849be36b8d0437271a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Deform: 0
-  SpawnObstacles: 1
-  RockPrefab: {fileID: 1266955762848042, guid: 68284bd8b8f07e246abf8ed1c96268cb, type: 2}
-  CrystalPrefab: {fileID: 1507677605079984, guid: e21b5ab70f747de4f9c0dc949b8d165d,
-    type: 2}
-  Scale: 1
-  Speed: 1
-  RecalculateNormals: 1
-  Planet: {fileID: 0}
