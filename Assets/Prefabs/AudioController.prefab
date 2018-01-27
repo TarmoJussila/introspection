@@ -391,15 +391,20 @@ MonoBehaviour:
   SoundPlayer: {fileID: 82665648430038958}
   CollectSound: {fileID: 8300000, guid: 65cc7c15760034f7e905990643816835, type: 3}
   ObjectiveSound: {fileID: 8300000, guid: 0fb5dccaf3e93492aaaa7af7e37ef256, type: 3}
-  TransmissionSound: {fileID: 8300000, guid: 65cc7c15760034f7e905990643816835, type: 3}
+  TransmissionSound: {fileID: 8300000, guid: a0853f110dde04ceb8e26916a394a485, type: 3}
   MeteoroidSound: {fileID: 8300000, guid: 3f150cb5cbfad754b8725be2c447a2d9, type: 3}
   MeteoroidExplodeSound: {fileID: 8300000, guid: b641e7d6ee10caa49b2690e6afa464a2,
     type: 3}
   ShipExplodeSound: {fileID: 8300000, guid: cbb88a765df0ea14c9ea1d043034860a, type: 3}
   InterferenceSounds:
-  - {fileID: 8300000, guid: de5d5ac2daff70543b4d1b14188aa42a, type: 3}
-  - {fileID: 8300000, guid: 18ad9470687e9ba4b92648bd8fcec026, type: 3}
-  - {fileID: 8300000, guid: 353ac850395eb9241a7d33d1890d17f6, type: 3}
+  - {fileID: 8300000, guid: 5ce9dbbc6fb184b6ab09d35170dce42b, type: 3}
+  - {fileID: 8300000, guid: 006dedcf8530a4264ba36a39876858a3, type: 3}
+  - {fileID: 8300000, guid: afabcbd971d4342139a31d1ec776da47, type: 3}
+  - {fileID: 8300000, guid: 382f8b4199e6e4c64a5fde4f67ff83b5, type: 3}
+  - {fileID: 8300000, guid: 83e3d62b2715a407baf02c97d0c441ce, type: 3}
+  - {fileID: 8300000, guid: df32108101b4f47aa94bd41b340bda8d, type: 3}
+  - {fileID: 8300000, guid: 449395601178a45909ef365570f45582, type: 3}
+  - {fileID: 8300000, guid: 71eec592d01bb49bf9f3f548610057d8, type: 3}
   VolumeVarianceMin: 0.9
   VolumeVarianceMax: 1
   PitchVarianceMin: 0.9
