@@ -53,16 +53,20 @@ public class Player : MonoBehaviour
         {
             groundNormal = (transform.position - hit.point).normalized;
         }
-        Debug.DrawLine(transform.position, hit.point);
+
+		Quaternion rot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+		transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 0.1f);
+		transform.Rotate(new Vector3(0, Input.GetAxisRaw(RotateAxis) * RotateSpeed, 0));
 
         Vector3 targetPos = hit.point + (groundNormal * FloatHeight);
-        targetPos += transform.forward * movementVector.y;
-        targetPos += transform.right * movementVector.x;
+        
+		//if (Physics.Raycast(transform.position, 
+
+		targetPos += transform.forward * movementVector.y;
+		targetPos += transform.right * movementVector.x;
 
         transform.position = Vector3.MoveTowards(transform.position, targetPos, MoveSpeed);
 
-        Quaternion rot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 0.1f);
-        transform.Rotate(new Vector3(0, Input.GetAxisRaw(RotateAxis) * RotateSpeed, 0));
+        
     }
 }
