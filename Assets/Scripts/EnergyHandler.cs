@@ -12,6 +12,8 @@ public class EnergyHandler : MonoBehaviour
 
     public Image EnergyFill;
     public Image EnergyWarning;
+    public Image PlusSign;
+    public Image MinusSign;
 
     private float energyFillMax = 1.0f;
     private float energyFillMin = 0.0f;
@@ -27,6 +29,8 @@ public class EnergyHandler : MonoBehaviour
     {
         SetEnergyAmount(energyFillMax);
         ShowWarning(false);
+        ShowMinusSign(false);
+        ShowPlusSign(false);
     }
 
     // Update.
@@ -52,6 +56,18 @@ public class EnergyHandler : MonoBehaviour
     public void ShowWarning(bool isVisible)
     {
         EnergyWarning.gameObject.SetActive(isVisible);
+    }
+
+    // Show plus sign.
+    public void ShowPlusSign(bool isVisible)
+    {
+        PlusSign.gameObject.SetActive(isVisible);
+    }
+
+    // Show minus sign.
+    public void ShowMinusSign(bool isVisible)
+    {
+        MinusSign.gameObject.SetActive(isVisible);
     }
 
     // Set energy amount.
