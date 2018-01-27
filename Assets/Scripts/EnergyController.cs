@@ -7,14 +7,25 @@ using UnityEngine;
 /// </summary>
 public class EnergyController : MonoBehaviour
 {
+    public static EnergyController Instance { get; private set; }
+
     [Range(0.1f, 1.0f)]
     public float CurrentEnergyAmount = 1.0f;
 
     [Range(0.005f, 0.1f)]
     public float EnergyDecreaseTime = 0.1f;
 
-	// Start.
-	private void Start()
+    [Range(0.01f, 0.5f)]
+    public float CrystalEnergyAmount = 0.1f;
+
+    // Awake.
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    // Start.
+    private void Start()
 	{
 		
 	}
@@ -26,4 +37,10 @@ public class EnergyController : MonoBehaviour
 
         EnergyHandler.Instance.SetEnergyAmount(CurrentEnergyAmount);
 	}
+
+    // Add energy.
+    public void AddEnergy()
+    {
+        CurrentEnergyAmount += CrystalEnergyAmount;
+    }
 }

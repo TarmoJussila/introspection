@@ -52,4 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentEnergyAmount: 1
-  EnergyDecreaseTime: 0.01
+  EnergyDecreaseTime: 0.02
+  CrystalEnergyAmount: 0.05
