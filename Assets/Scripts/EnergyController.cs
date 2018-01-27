@@ -50,6 +50,8 @@ public class EnergyController : MonoBehaviour
             CurrentEnergyAmount -= Time.deltaTime * EnergyDecreaseTime;
         }
 
+        EnergyHandler.Instance.ShowMinusSign(IsJumping);
+
         EnergyHandler.Instance.SetEnergyAmount(CurrentEnergyAmount);
     }
 

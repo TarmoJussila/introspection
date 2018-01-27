@@ -62,11 +62,12 @@ public class Crystal : MonoBehaviour
                 }
 
                 EnergyController.Instance.AddEnergy();
-
+                EnergyHandler.Instance.ShowPlusSign(true);
                 AudioController.Instance.PlaySound(SoundType.Collect, ConsumeSoundBasePitch + (initialCrystalCount - currentCrystalCount) * ConsumeSoundPitchGrowth);
             }
             else
             {
+                EnergyHandler.Instance.ShowPlusSign(false);
                 IsConsuming = false;
                 yield break;
             }
@@ -94,6 +95,8 @@ public class Crystal : MonoBehaviour
         if (otherCollider.CompareTag("Player"))
         {
             IsConsuming = false;
+
+            EnergyHandler.Instance.ShowPlusSign(false);
 
             StopAllCoroutines();
         }
