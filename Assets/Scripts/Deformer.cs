@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Deforms sphere shapes.
+/// </summary>
 public class Deformer : MonoBehaviour
 {
-
 	[Range(0, 3)]
 	public float MinRockSize;
 	[Range(5, 15)]
@@ -26,19 +28,16 @@ public class Deformer : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-
 		mesh = GetComponent<MeshFilter>().mesh;
 		baseVertices = mesh.vertices;
 
 		collider = GetComponent<MeshCollider>();
 
 		DeformMesh();
-		
 	}
 
 	void DeformMesh()
 	{
-
 		float newScale = Random.Range(MinRockSize, MaxRockSize);
 		transform.localScale = new Vector3(newScale, newScale, newScale);
 
@@ -47,6 +46,7 @@ public class Deformer : MonoBehaviour
 		var timex = Time.time * Speed;
 		var timey = Time.time * Speed;
 		var timez = Time.time * Speed;
+
 		for (var i = 0; i < vertices.Length; i++)
 		{
 			var vertex = baseVertices[i];
@@ -61,9 +61,11 @@ public class Deformer : MonoBehaviour
 		mesh.vertices = vertices;
 
 		if (RecalculateNormals)
-			mesh.RecalculateNormals();
+        {
+            mesh.RecalculateNormals();
+        }
+
 		mesh.RecalculateBounds();
 		collider.sharedMesh = mesh;
-
 	}
 }
