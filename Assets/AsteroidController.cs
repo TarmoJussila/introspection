@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidController : MonoBehaviour {
+public class AsteroidController : MonoBehaviour
+{
 
 	public GameObject AsteroidPrefab;
 	public Transform planet;
@@ -18,30 +19,33 @@ public class AsteroidController : MonoBehaviour {
 	private Player playerController;
 
 	// Use this for initialization
-	void Start () {
+	void Start()
+	{
 		player = Player.Instance.transform;
-		playerController = player.gameObject.GetComponent<Player> ();
-		Invoke ("ShootAsteroid", firstAsteroidTime);
+		playerController = player.gameObject.GetComponent<Player>();
+		Invoke("ShootAsteroid", firstAsteroidTime);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update()
+	{
 
 		transform.position = player.position + (playerController.GroundNormal * FloatHeight);
 		
 	}
 
-	void ShootAsteroid () {
+	void ShootAsteroid()
+	{
 	
-		GameObject asteroid = (GameObject)Instantiate (AsteroidPrefab, transform.position, Quaternion.identity);
-		int force = (int)Random.Range (MinAsteroidForce, MaxAsteroidForce);
-		print ("shooting asteroid with force of " + force);
+		GameObject asteroid = (GameObject)Instantiate(AsteroidPrefab, transform.position, Quaternion.identity);
+		int force = (int)Random.Range(MinAsteroidForce, MaxAsteroidForce);
+		print("shooting asteroid with force of " + force);
 		Vector3 targetPos = player.position;
-		targetPos += player.forward * Random.Range (-10, 10);
-		targetPos += player.right * Random.Range (-10, 10);
-		asteroid.GetComponent<Rigidbody> ().AddForce ((targetPos - transform.position) * force);
+		targetPos += player.forward * Random.Range(-10, 10);
+		targetPos += player.right * Random.Range(-10, 10);
+		asteroid.GetComponent<Rigidbody>().AddForce((targetPos - transform.position) * force);
 	
-		Invoke ("ShootAsteroid", Random.Range (MinAsteroidFrequency, MaxAsteroidFrequency));
+		Invoke("ShootAsteroid", Random.Range(MinAsteroidFrequency, MaxAsteroidFrequency));
 
 	}
 }

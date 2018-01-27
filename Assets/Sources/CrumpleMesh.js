@@ -23,6 +23,7 @@ function Update () {
 	var timex = Time.time * speed + 0.1365143;
 	var timey = Time.time * speed + 1.21688;
 	var timez = Time.time * speed + 2.5564;
+
 	for (var i=0;i<vertices.Length;i++)
 	{
 		var vertex = baseVertices[i];

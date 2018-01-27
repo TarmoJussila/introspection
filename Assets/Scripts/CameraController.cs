@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class CameraController : MonoBehaviour
 {
-    public Transform FollowTransform;
+	public Transform FollowTransform;
 
 	// Start.
 	private void Start()
@@ -19,8 +19,8 @@ public class CameraController : MonoBehaviour
 	private void Update()
 	{
 		if (FollowTransform != null)
-        {
+		{
 
-        }
+		}
 	}
 }
