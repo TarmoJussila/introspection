@@ -26,8 +26,8 @@ public class ObjectiveHandler : MonoBehaviour
     public Image CollectObjective;
     public Image TransmissionObjective;
 
-    private float animatorPlaybackSpeedMax = 3.0f;
-    private float animatorPlaybackSpeedMin = 0.5f;
+    public float AnimatorPlaybackSpeedMax = 10.0f;
+    public float AnimatorPlaybackSpeedMin = 0.5f;
 
     // Awake.
     private void Awake()
@@ -66,5 +66,11 @@ public class ObjectiveHandler : MonoBehaviour
                 break;
             }
         }
+    }
+
+    // Set indicator playback speed.
+    public void SetIndicatorSpeed(float playbackSpeed)
+    {
+        ObjectiveAnimator.speed = playbackSpeed;
     }
 }

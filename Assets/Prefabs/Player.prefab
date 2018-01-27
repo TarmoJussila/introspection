@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 33299518189038178}
   - component: {fileID: 65462299839347804}
   - component: {fileID: 23180252964354508}
-  - component: {fileID: 114303346011897748}
   - component: {fileID: 54535761606922884}
+  - component: {fileID: 114303346011897748}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -87,26 +87,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853883461464938}
-  m_LocalRotation: {x: 0.17674121, y: 0, z: 0, w: 0.9842574}
-  m_LocalPosition: {x: 0, y: 9.02, z: -9.91}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: 0, y: 6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4136663172174730}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 20.36, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!4 &4403095590801636
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1406601754368672}
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalRotation: {x: 0.10452846, y: 0, z: 0, w: 0.9945219}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4136663172174730}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12, y: 0, z: 0}
 --- !u!20 &20385576955245348
 Camera:
   m_ObjectHideFlags: 1
@@ -124,7 +124,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 100
+  far clip plane: 125
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -227,8 +227,8 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 16.01
-  m_Range: 20
+  m_Intensity: 20
+  m_Range: 25
   m_SpotAngle: 60
   m_CookieSize: 10
   m_Shadows:
@@ -267,11 +267,11 @@ MonoBehaviour:
   HorizontalAxis: Horizontal
   VerticalAxis: Vertical
   RotateAxis: Mouse X
-  MoveSpeed: 0.1
+  MoveSpeed: 0.15
   RotateSpeed: 2
   FloatHeight: 5
-  currentPlanet: {fileID: 0}
-  inAtmosphere: 0
+  CurrentPlanet: {fileID: 0}
+  InAtmosphere: 0
 --- !u!114 &114711806918669186
 MonoBehaviour:
   m_ObjectHideFlags: 1

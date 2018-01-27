@@ -52,4 +52,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectivePointAmount: 5
+  LowIndicator:
+    IndicatorDistance: 100
+    GrainIntensity: 0.2
+    AnimatorSpeed: 2
+  MediumIndicator:
+    IndicatorDistance: 50
+    GrainIntensity: 0.5
+    AnimatorSpeed: 4
+  HighIndicator:
+    IndicatorDistance: 10
+    GrainIntensity: 0.9
+    AnimatorSpeed: 8
+  DefaultIndicator:
+    IndicatorDistance: 0
+    GrainIntensity: 0.1
+    AnimatorSpeed: 0.5
+  DistanceCheckWaitTime: 1
+  InitialDistanceCheckWaitTime: 3
   Objectives: []
+  PostProcessingProfile: {fileID: 11400000, guid: f99fdf647c21fed4cbebfc59b01d65bc,
+    type: 2}
