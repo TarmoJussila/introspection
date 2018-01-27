@@ -33,6 +33,8 @@ public class PlanetGenerator : MonoBehaviour
     private Mesh mesh;
     private MeshCollider collider;
 
+	Vector3 last = Vector3.zero;
+
     private Transform planetObjectContainer;
 
     // Start.
@@ -108,11 +110,13 @@ public class PlanetGenerator : MonoBehaviour
     {
         int spawnsThisLoop = 0;
         int total = 0;
-        Vector3 last = Vector3.zero;
+		List<Vector3> distinctList = baseVertices.Distinct ().ToList();
 
-        foreach (Vector3 vertice in baseVertices)
+		foreach (Vector3 vertice in distinctList)
         {
             if (vertice == last) continue;
+
+			last = vertice;
 
             int chance = Random.Range(0, 100);
 
