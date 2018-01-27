@@ -385,14 +385,18 @@ MonoBehaviour:
   Ambient: {fileID: 8300000, guid: a3732ef0c178d904e80ecb53a88e986e, type: 3}
   MusicPlayer: {fileID: 82501177013035646}
   CurrentMusicType: 1
-  IntroMusic: {fileID: 0}
+  IntroMusic: {fileID: 8300000, guid: 5e1ec2a41d2447d448fac4b2301b6fef, type: 3}
   GameMusic: {fileID: 8300000, guid: 5e1ec2a41d2447d448fac4b2301b6fef, type: 3}
-  OutroMusic: {fileID: 0}
+  OutroMusic: {fileID: 8300000, guid: 5e1ec2a41d2447d448fac4b2301b6fef, type: 3}
   SoundPlayer: {fileID: 82665648430038958}
   CollectSound: {fileID: 8300000, guid: 9c89db7aa5a9bf741b0ba9ad8ae3a99e, type: 3}
   ObjectiveSound: {fileID: 8300000, guid: 831caa6dec5fa514e8391f63586c0372, type: 3}
-  TransmissionSound: {fileID: 0}
-  MeteoroidSound: {fileID: 0}
+  TransmissionSound: {fileID: 8300000, guid: 65cc7c15760034f7e905990643816835, type: 3}
+  MeteoroidSound: {fileID: 8300000, guid: 3f150cb5cbfad754b8725be2c447a2d9, type: 3}
+  MeteoroidExplodeSound: {fileID: 8300000, guid: b641e7d6ee10caa49b2690e6afa464a2,
+    type: 3}
+  ShipExplodeSound: {fileID: 8300000, guid: cbb88a765df0ea14c9ea1d043034860a, type: 3}
+  InterferenceSounds: []
   VolumeVarianceMin: 0.8
   VolumeVarianceMax: 1
   PitchVarianceMin: 0.8
