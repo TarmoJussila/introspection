@@ -154,25 +154,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2eb3956892c36543893288138c02c56, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &147589218 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1070530291032762, guid: ac7e468b2f98641459f28e1e13d41284,
-    type: 2}
-  m_PrefabInternal: {fileID: 558719400}
---- !u!64 &147589219
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 147589218}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &174836264
 Prefab:
   m_ObjectHideFlags: 0
@@ -301,74 +282,6 @@ Prefab:
       propertyPath: CurrentPlanet
       value: 
       objectReference: {fileID: 1605175096}
-    - target: {fileID: 4062764207225210, guid: ac7e468b2f98641459f28e1e13d41284, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4244810661894530, guid: ac7e468b2f98641459f28e1e13d41284, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4729104652689556, guid: ac7e468b2f98641459f28e1e13d41284, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 198459967599521934, guid: ac7e468b2f98641459f28e1e13d41284,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198459967599521934, guid: ac7e468b2f98641459f28e1e13d41284,
-        type: 2}
-      propertyPath: randomSeed
-      value: 141730616
-      objectReference: {fileID: 0}
-    - target: {fileID: 198651931107496862, guid: ac7e468b2f98641459f28e1e13d41284,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198651931107496862, guid: ac7e468b2f98641459f28e1e13d41284,
-        type: 2}
-      propertyPath: randomSeed
-      value: -1622371863
-      objectReference: {fileID: 0}
-    - target: {fileID: 198777195999142758, guid: ac7e468b2f98641459f28e1e13d41284,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198777195999142758, guid: ac7e468b2f98641459f28e1e13d41284,
-        type: 2}
-      propertyPath: randomSeed
-      value: 1266716817
-      objectReference: {fileID: 0}
-    - target: {fileID: 198221267598351634, guid: ac7e468b2f98641459f28e1e13d41284,
-        type: 2}
-      propertyPath: moveWithTransform
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198221267598351634, guid: ac7e468b2f98641459f28e1e13d41284,
-        type: 2}
-      propertyPath: randomSeed
-      value: 469464962
-      objectReference: {fileID: 0}
-    - target: {fileID: 1161305843726310, guid: ac7e468b2f98641459f28e1e13d41284, type: 2}
-      propertyPath: m_Name
-      value: exhaust_bottom
-      objectReference: {fileID: 0}
-    - target: {fileID: 1427042501051506, guid: ac7e468b2f98641459f28e1e13d41284, type: 2}
-      propertyPath: m_Name
-      value: exhaust_bottom
-      objectReference: {fileID: 0}
-    - target: {fileID: 1813569952096082, guid: ac7e468b2f98641459f28e1e13d41284, type: 2}
-      propertyPath: m_Name
-      value: exhaust_bottom
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938143915911876, guid: ac7e468b2f98641459f28e1e13d41284, type: 2}
-      propertyPath: m_Name
-      value: exhaust_bottom
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac7e468b2f98641459f28e1e13d41284, type: 2}
   m_IsPrefabParent: 0
@@ -657,16 +570,6 @@ Prefab:
       propertyPath: planet
       value: 
       objectReference: {fileID: 1605175096}
-    - target: {fileID: 114240386499691532, guid: d6d5ecb119c835143aba14b889adfef6,
-        type: 2}
-      propertyPath: FloatHeight
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114240386499691532, guid: d6d5ecb119c835143aba14b889adfef6,
-        type: 2}
-      propertyPath: MaxAsteroidForce
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6d5ecb119c835143aba14b889adfef6, type: 2}
   m_IsPrefabParent: 0
