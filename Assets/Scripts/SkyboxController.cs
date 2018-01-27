@@ -28,14 +28,14 @@ public class SkyboxController : MonoBehaviour
     // Start.
     private void Start()
 	{
-        RenderSettings.skybox = Skyboxes[Random.Range(0, Skyboxes.Count)];
-
-        DynamicGI.UpdateEnvironment();
+        SetRandomSkybox();
     }
 
     // Set random skybox.
     public void SetRandomSkybox()
     {
+        RenderSettings.skybox = Skyboxes[Random.Range(0, Skyboxes.Count)];
 
+        DynamicGI.UpdateEnvironment();
     }
 }
