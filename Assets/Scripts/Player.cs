@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public float JumpFloatHeight;
 
     private Vector2 movementVector;
+    private float rotateAmount;
 
     public Vector3 GroundNormal;
 
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
     public Transform RightRaycast;
 
     private bool grounded;
+    private bool dead = false;
 
     // Awake.
     private void Awake()
@@ -39,10 +41,26 @@ public class Player : MonoBehaviour
     // Update.
     private void Update()
     {
+        if (dead)
+            return;
+
+        if (EnergyController.Instance.CurrentEnergyAmount <= 0)
+        {
+            dead = true;
+            Dead();
+            movementVector = Vector3.zero;
+            rotateAmount = 0;
+            FloatHeight = 1;
+            return;
+        }
+            
+        
         movementVector.x = Input.GetAxisRaw(HorizontalAxis);
         movementVector.y = Input.GetAxisRaw(VerticalAxis);
+        rotateAmount = Input.GetAxisRaw(RotateAxis);
 
         FloatHeight = Mathf.Sin(Time.time) + 3;
+       
     }
 
     // Fixed update.
@@ -57,10 +75,10 @@ public class Player : MonoBehaviour
 
         Quaternion rot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 0.1f);
-        transform.Rotate(new Vector3(0, Input.GetAxisRaw(RotateAxis) * RotateSpeed, 0));
+        transform.Rotate(new Vector3(0, rotateAmount * RotateSpeed, 0));
 
         Vector3 targetPos;
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetAxisRaw("LT") > 0)
         {
             EnergyController.IsJumping = true;
             targetPos = hit.point + (GroundNormal * JumpFloatHeight);
@@ -70,6 +88,8 @@ public class Player : MonoBehaviour
             EnergyController.IsJumping = false;
             targetPos = hit.point + (GroundNormal * FloatHeight);
         }
+
+        if 
            
 
         hit = new RaycastHit();
@@ -131,5 +151,19 @@ public class Player : MonoBehaviour
     void HitByMeteor()
     {
         EnergyController.Instance.RemoveEnergy();
+    }
+
+    void Dead()
+    {
+    
+        foreach (ParticleSystem p in GetComponentsInChildren<ParticleSystem>())
+        {
+            p.Stop();
+        }
+        foreach (Light l in GetComponentsInChildren<Light>())
+        {
+            l.enabled = false;
+        }
+    
     }
 }

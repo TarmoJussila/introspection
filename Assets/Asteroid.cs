@@ -16,6 +16,7 @@ public class Asteroid : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody>();
+        AudioController.Instance.PlaySound(SoundType.Meteoroid);
 
     }
 
@@ -34,6 +35,7 @@ public class Asteroid : MonoBehaviour
             if (v.CompareTag("Player"))
                 v.SendMessage("HitByMeteor");
         GameObject g = (GameObject)Instantiate(DeathParticles, coll.contacts[0].point, Quaternion.identity);
+        AudioController.Instance.PlaySound(SoundType.MeteoroidExplode);
         Destroy(gameObject);
 
     }
