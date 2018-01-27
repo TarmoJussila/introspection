@@ -37,7 +37,7 @@ public class ObjectiveController : MonoBehaviour
     private ObjectiveIndicator currentIndicator;
 
     public float InterferenceFillVariance = 0.1f;
-    public float InterferenceTime = 0.1f;
+    public float InterferenceTime = 0.05f;
 
     public float DistanceCheckWaitTime = 1.0f;
     public float InitialDistanceCheckWaitTime = 3.0f;
@@ -64,22 +64,12 @@ public class ObjectiveController : MonoBehaviour
         StartCoroutine(InitialWaitTime());
 	}
 
-    // Set interference.
-    private IEnumerator SetInterference()
-    {
-        var currentFill = currentIndicator.ProximityFill;
-        var randomFill = Random.Range(currentFill - InterferenceFillVariance, currentFill + InterferenceFillVariance);
-
-        ObjectiveHandler.Instance.SetIndicatorProximity(currentIndicator.AnimatorSpeed, randomFill);
-
-        yield return new WaitForSeconds(InterferenceTime);
-    }
-
     private IEnumerator InitialWaitTime()
     {
         yield return new WaitForSeconds(InitialDistanceCheckWaitTime);
 
         StartCoroutine(CheckObjectiveDistance());
+        StartCoroutine(SetIndicatorInterference());
     }
 
     // Check objective distance.
@@ -134,5 +124,21 @@ public class ObjectiveController : MonoBehaviour
         yield return new WaitForSeconds(DistanceCheckWaitTime);
 
         yield return CheckObjectiveDistance();
+    }
+
+    // Set objective indicator interference.
+    private IEnumerator SetIndicatorInterference()
+    {
+        if (currentIndicator != null)
+        {
+            var currentFill = currentIndicator.ProximityFill;
+            var randomFill = Random.Range(currentFill - InterferenceFillVariance, currentFill + InterferenceFillVariance);
+
+            ObjectiveHandler.Instance.SetIndicatorProximity(currentIndicator.AnimatorSpeed, randomFill);
+        }
+
+        yield return new WaitForSeconds(InterferenceTime);
+
+        yield return SetIndicatorInterference();
     }
 }
