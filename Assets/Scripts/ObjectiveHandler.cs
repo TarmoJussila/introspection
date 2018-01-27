@@ -21,8 +21,13 @@ public class ObjectiveHandler : MonoBehaviour
 
     public ObjectiveType CurrentObjective;
 
+    public Animator ObjectiveAnimator;
+
     public Image CollectObjective;
     public Image TransmissionObjective;
+
+    private float animatorPlaybackSpeedMax = 3.0f;
+    private float animatorPlaybackSpeedMin = 0.5f;
 
     // Awake.
     private void Awake()
@@ -32,15 +37,14 @@ public class ObjectiveHandler : MonoBehaviour
 
     // Start.
     private void Start()
-	{
+    {
         SetObjective(CurrentObjective);
-	}
-	
-	// Update.
-	private void Update()
-	{
-		
-	}
+    }
+
+    // Update.
+    private void Update()
+    {
+    }
 
     // Set objective.
     public void SetObjective(ObjectiveType objectiveType)

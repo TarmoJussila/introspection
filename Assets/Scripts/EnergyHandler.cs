@@ -24,9 +24,9 @@ public class EnergyHandler : MonoBehaviour
 
     // Start.
     private void Start()
-	{
+    {
         ShowWarning(false);
-	}
+    }
 
     // Update.
     private void Update()

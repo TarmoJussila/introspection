@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 64701072662705918}
   - component: {fileID: 114539268050599180}
   m_Layer: 8
-  m_Name: Planet
+  m_Name: Planet_Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,11 +109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85d65ee02c7e1849be36b8d0437271a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnsPerLoop: 50
+  SpawnsPerLoop: 50
   Deform: 0
   SpawnObstacles: 1
   RockPrefab: {fileID: 1266955762848042, guid: 68284bd8b8f07e246abf8ed1c96268cb, type: 2}
   CrystalPrefab: {fileID: 1507677605079984, guid: e21b5ab70f747de4f9c0dc949b8d165d,
+    type: 2}
+  ObjectivePrefab: {fileID: 1980487531733544, guid: ac7cf91565642a84087b7d907eb7245b,
     type: 2}
   Scale: 1
   Speed: 1
