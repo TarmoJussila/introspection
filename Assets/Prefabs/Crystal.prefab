@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 33305112143540094}
   - component: {fileID: 23956076139729366}
   m_Layer: 0
-  m_Name: crystal_lowpoly
+  m_Name: Crystal_Lowpoly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4907708289805390}
-  m_Layer: 0
+  - component: {fileID: 65494856507521388}
+  - component: {fileID: 54196127081033696}
+  - component: {fileID: 114696972782301236}
+  m_Layer: 2
   m_Name: Crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +226,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507677605079984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.31, y: 249.93, z: 5.02}
+  m_LocalPosition: {x: 0, y: 250, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4288518952173116}
@@ -278,7 +281,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1cb55300299c3af48a928975b41d4521, type: 2}
   - {fileID: 2100000, guid: 6da66eb9fe61a8f42be23c3bb51352f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -314,7 +316,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 6da66eb9fe61a8f42be23c3bb51352f1, type: 2}
-  - {fileID: 2100000, guid: 1cb55300299c3af48a928975b41d4521, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -417,7 +418,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 1cb55300299c3af48a928975b41d4521, type: 2}
-  - {fileID: 2100000, guid: 6da66eb9fe61a8f42be23c3bb51352f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -479,3 +479,45 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1388460669540880}
   m_Mesh: {fileID: 4300004, guid: 46c7ab6a12952d540965e643289150a1, type: 3}
+--- !u!54 &54196127081033696
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507677605079984}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!65 &65494856507521388
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507677605079984}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 10, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114696972782301236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507677605079984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609632a74353ca34fb28fa9d5c950875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsConsuming: 0
+  ConsumeDelayTime: 0.5
+  ConsumedMaterial: {fileID: 2100000, guid: 3f1bdf48247e8a0408616a8cdb4fe248, type: 2}
+  MeshRenderers: []
