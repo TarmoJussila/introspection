@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: 92a2a6089e04781458ade80d97197d6e
-timeCreated: 1517076253
+guid: 7e087cc55b168ab4dae588fbc59b36d4
+timeCreated: 1517077290
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Camera
-    100002: Lamp
-    100004: //RootNode
-    100006: projector mast
-    400000: Camera
-    400002: Lamp
-    400004: //RootNode
-    400006: projector mast
-    2000000: Camera
-    2300000: projector mast
-    2300002: //RootNode
-    3300000: projector mast
-    3300002: //RootNode
-    4300000: projector mast
-    10800000: Lamp
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Sphere
+    7400000: Default Take
+    9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: projector mast.png
-    second: {fileID: 2100000, guid: 30bcbc82743da0d40833818e03564621, type: 2}
+      name: Base
+    second: {fileID: 2100000, guid: a5605050b1283ea4197383b4f9f38cc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Needle
+    second: {fileID: 2100000, guid: b33ccc93458cad341b42e57928eb0755, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -97,7 +94,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
