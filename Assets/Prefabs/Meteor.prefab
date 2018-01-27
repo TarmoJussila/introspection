@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114803645843913892}
   - component: {fileID: 64258211783167762}
   m_Layer: 0
-  m_Name: Asteroid
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -114,4 +114,10 @@ public class Player : MonoBehaviour
 
         
 	}
+
+    void OnCollisionEnter (Collision coll) {
+
+        //if (coll.gameObject.CompareTag("Meteor")) 
+
+    }
 }
