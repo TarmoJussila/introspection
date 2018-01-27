@@ -52,4 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectivePointAmount: 5
+  DistanceCheckWaitTime: 1
+  InitialDistanceCheckWaitTime: 3
+  LowIndicatorDistance: 75
+  MediumIndicatorDistance: 30
+  HighIndicatorDistance: 10
   Objectives: []

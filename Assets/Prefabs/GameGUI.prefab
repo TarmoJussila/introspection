@@ -183,6 +183,8 @@ MonoBehaviour:
   ObjectiveAnimator: {fileID: 95755757806826630}
   CollectObjective: {fileID: 114593560460579874}
   TransmissionObjective: {fileID: 114594243359397340}
+  AnimatorPlaybackSpeedMax: 10
+  AnimatorPlaybackSpeedMin: 0.5
 --- !u!114 &114277159161233850
 MonoBehaviour:
   m_ObjectHideFlags: 1

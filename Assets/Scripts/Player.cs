@@ -2,74 +2,83 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+/// <summary>
+/// Player.
+/// </summary>
+public class Player : MonoBehaviour
+{
+    public static Player Instance { get; private set; }
 
-	public string HorizontalAxis;
-	public string VerticalAxis;
-	public string RotateAxis;
+    public string HorizontalAxis;
+    public string VerticalAxis;
+    public string RotateAxis;
 
-	public float MoveSpeed;
-	public float RotateSpeed;
-	public float FloatHeight;
+    public float MoveSpeed;
+    public float RotateSpeed;
+    public float FloatHeight;
 
-	private Vector2 movementVector;
-	private Vector3 groundNormal;
+    private Vector2 movementVector;
+    private Vector3 groundNormal;
 
-	private Collider collider;
+    private Collider collider;
 
-	public Transform currentPlanet;
-	public bool inAtmosphere;
-	private bool grounded;
+    public Transform CurrentPlanet;
+    public bool InAtmosphere;
 
-	// Use this for initialization
-	void Start () {
+    private bool grounded;
 
-		collider = GetComponent<Collider> ();
+    // Awake.
+    private void Awake()
+    {
+        Instance = this;
+    }
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Start.
+    private void Start()
+    {
+        collider = GetComponent<Collider>();
+    }
 
-		movementVector.x = Input.GetAxisRaw (HorizontalAxis);
-		movementVector.y = Input.GetAxisRaw (VerticalAxis);
+    // Update.
+    private void Update()
+    {
+        movementVector.x = Input.GetAxisRaw(HorizontalAxis);
+        movementVector.y = Input.GetAxisRaw(VerticalAxis);
 
-		FloatHeight = Mathf.Sin (Time.time) + 3;
+        FloatHeight = Mathf.Sin(Time.time) + 3;
+    }
 
-	}
+    private void FixedUpdate()
+    {
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(transform.position, CurrentPlanet.position - transform.position, out hit))
+        {
+            groundNormal = (transform.position - hit.point).normalized;
+        }
+        Debug.DrawLine(transform.position, hit.point);
 
-	void FixedUpdate () {
+        Vector3 targetPos = hit.point + (groundNormal * FloatHeight);
+        targetPos += transform.forward * movementVector.y;
+        targetPos += transform.right * movementVector.x;
 
-		RaycastHit hit = new RaycastHit ();
-		if (Physics.Raycast (transform.position, currentPlanet.position - transform.position, out hit)) {
-			groundNormal = (transform.position - hit.point).normalized;
-		}
-		Debug.DrawLine (transform.position, hit.point);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, MoveSpeed);
 
-		Vector3 targetPos = hit.point + (groundNormal * FloatHeight);
-		targetPos += transform.forward * movementVector.y;
-		targetPos += transform.right * movementVector.x;
+        Quaternion rot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 0.1f);
+        transform.Rotate(new Vector3(0, Input.GetAxisRaw(RotateAxis) * RotateSpeed, 0));
+    }
 
-		transform.position = Vector3.MoveTowards (transform.position, targetPos, MoveSpeed);
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("atmosphere"))
+        {
+            InAtmosphere = true;
+            CurrentPlanet = other.transform;
+        }
+    }
 
-		Quaternion rot = Quaternion.FromToRotation (transform.up, hit.normal) * transform.rotation;
-		transform.rotation = Quaternion.RotateTowards (transform.rotation, rot, 0.1f);
-		transform.Rotate (new Vector3 (0, Input.GetAxisRaw(RotateAxis) * RotateSpeed, 0));
-
-	}
-
-	void OnTriggerEnter (Collider other) {
-
-		if (other.CompareTag ("atmosphere")) {
-			inAtmosphere = true;
-			currentPlanet = other.transform;
-		}
-
-	}
-
-	void OnTriggerExit (Collider other) {
-
-		if (other.CompareTag ("atmosphere")) inAtmosphere = false;
-
-	}
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("atmosphere")) InAtmosphere = false;
+    }
 }
