@@ -147,7 +147,10 @@ PlayerSettings:
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: fi.spaceknot.introspection
+    Standalone: fi.spaceknot.introspection
+    iOS: fi.spaceknot.introspection
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
