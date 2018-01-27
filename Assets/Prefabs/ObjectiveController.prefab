@@ -56,18 +56,24 @@ MonoBehaviour:
     IndicatorDistance: 100
     GrainIntensity: 0.2
     AnimatorSpeed: 2
+    ProximityFill: 0.5
   MediumIndicator:
     IndicatorDistance: 50
     GrainIntensity: 0.5
     AnimatorSpeed: 4
+    ProximityFill: 0.7
   HighIndicator:
     IndicatorDistance: 10
     GrainIntensity: 0.9
     AnimatorSpeed: 8
+    ProximityFill: 1
   DefaultIndicator:
     IndicatorDistance: 0
     GrainIntensity: 0.1
     AnimatorSpeed: 0.5
+    ProximityFill: 0
+  InterferenceFillVariance: 0.1
+  InterferenceTime: 0.1
   DistanceCheckWaitTime: 1
   InitialDistanceCheckWaitTime: 3
   Objectives: []
