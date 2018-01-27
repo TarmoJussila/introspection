@@ -23,7 +23,7 @@ public class ObjectiveHandler : MonoBehaviour
 
     public Animator ObjectiveAnimator;
 
-    public Image CollectObjective;
+    public Image ObjectiveProximityFill;
     public Image TransmissionObjective;
 
     public float AnimatorPlaybackSpeedMax = 10.0f;
@@ -55,22 +55,21 @@ public class ObjectiveHandler : MonoBehaviour
         {
             case ObjectiveType.Collect:
             {
-                CollectObjective.enabled = true;
                 TransmissionObjective.enabled = false;
                 break;
             }
             case ObjectiveType.Transmission:
             {
-                CollectObjective.enabled = false;
                 TransmissionObjective.enabled = true;
                 break;
             }
         }
     }
 
-    // Set indicator playback speed.
-    public void SetIndicatorSpeed(float playbackSpeed)
+    // Set indicator proximity. Fill amount and playback speed.
+    public void SetIndicatorProximity(float playbackSpeed, float fillAmount)
     {
         ObjectiveAnimator.speed = playbackSpeed;
+        ObjectiveProximityFill.fillAmount = fillAmount;
     }
 }

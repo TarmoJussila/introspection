@@ -15,6 +15,8 @@ public class ObjectiveIndicator
     public float GrainIntensity;
     [Range(0, 10)]
     public float AnimatorSpeed;
+    [Range(0f, 1f)]
+    public float ProximityFill;
 }
 
 /// <summary>
@@ -31,6 +33,11 @@ public class ObjectiveController : MonoBehaviour
     public ObjectiveIndicator HighIndicator;
 
     public ObjectiveIndicator DefaultIndicator;
+
+    private ObjectiveIndicator currentIndicator;
+
+    public float InterferenceFillVariance = 0.1f;
+    public float InterferenceTime = 0.05f;
 
     public float DistanceCheckWaitTime = 1.0f;
     public float InitialDistanceCheckWaitTime = 3.0f;
@@ -62,6 +69,7 @@ public class ObjectiveController : MonoBehaviour
         yield return new WaitForSeconds(InitialDistanceCheckWaitTime);
 
         StartCoroutine(CheckObjectiveDistance());
+        StartCoroutine(SetIndicatorInterference());
     }
 
     // Check objective distance.
@@ -90,28 +98,24 @@ public class ObjectiveController : MonoBehaviour
 
         if (closestDistance < HighIndicator.IndicatorDistance)
         {
-            float playbackSpeed = HighIndicator.AnimatorSpeed;
-            ObjectiveHandler.Instance.SetIndicatorSpeed(playbackSpeed);
-            grainSettings.intensity = HighIndicator.GrainIntensity;
+            currentIndicator = HighIndicator;
         }
         else if (closestDistance < MediumIndicator.IndicatorDistance)
         {
-            float playbackSpeed = MediumIndicator.AnimatorSpeed;
-            ObjectiveHandler.Instance.SetIndicatorSpeed(playbackSpeed);
-            grainSettings.intensity = MediumIndicator.GrainIntensity;
+            currentIndicator = MediumIndicator;
         }
         else if (closestDistance < LowIndicator.IndicatorDistance)
         {
-            float playbackSpeed = LowIndicator.AnimatorSpeed;
-            ObjectiveHandler.Instance.SetIndicatorSpeed(playbackSpeed);
-            grainSettings.intensity = LowIndicator.GrainIntensity;
+            currentIndicator = LowIndicator;
         }
         else
         {
-            float playbackSpeed = DefaultIndicator.AnimatorSpeed;
-            ObjectiveHandler.Instance.SetIndicatorSpeed(playbackSpeed);
-            grainSettings.intensity = DefaultIndicator.GrainIntensity;
+            currentIndicator = DefaultIndicator;
         }
+
+        float playbackSpeed = currentIndicator.AnimatorSpeed;
+        ObjectiveHandler.Instance.SetIndicatorProximity(playbackSpeed, currentIndicator.ProximityFill);
+        grainSettings.intensity = currentIndicator.GrainIntensity;
 
         PostProcessingProfile.grain.settings = grainSettings;
 
@@ -120,5 +124,21 @@ public class ObjectiveController : MonoBehaviour
         yield return new WaitForSeconds(DistanceCheckWaitTime);
 
         yield return CheckObjectiveDistance();
+    }
+
+    // Set objective indicator interference.
+    private IEnumerator SetIndicatorInterference()
+    {
+        if (currentIndicator != null)
+        {
+            var currentFill = currentIndicator.ProximityFill;
+            var randomFill = Random.Range(currentFill - InterferenceFillVariance, currentFill + InterferenceFillVariance);
+
+            ObjectiveHandler.Instance.SetIndicatorProximity(currentIndicator.AnimatorSpeed, randomFill);
+        }
+
+        yield return new WaitForSeconds(InterferenceTime);
+
+        yield return SetIndicatorInterference();
     }
 }

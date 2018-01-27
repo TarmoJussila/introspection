@@ -29,6 +29,11 @@ public class AudioController : MonoBehaviour
 {
     public static AudioController Instance { get; private set; }
 
+    [Header("Ambient Player")]
+    public AudioSource AmbientPlayer;
+
+    public AudioClip Ambient;
+
     [Header("Music Player")]
     public AudioSource MusicPlayer;
 
@@ -66,8 +71,17 @@ public class AudioController : MonoBehaviour
     // Start.
     private void Start()
 	{
+        PlayAmbient();
         PlayMusic(CurrentMusicType);
 	}
+
+    // Play ambient.
+    public void PlayAmbient()
+    {
+        AmbientPlayer.clip = Ambient;
+
+        AmbientPlayer.Play();
+    }
 	
     // Play music (change track).
 	public void PlayMusic(MusicType musicType)
@@ -96,6 +110,8 @@ public class AudioController : MonoBehaviour
         }
 
         MusicPlayer.clip = musicClip;
+
+        MusicPlayer.Play();
     }
 
     // Play sound.
