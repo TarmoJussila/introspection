@@ -18,6 +18,9 @@ public class EnergyController : MonoBehaviour
     [Range(0.01f, 0.5f)]
     public float CrystalEnergyAmount = 0.1f;
 
+    [Range(0.01f, 1.0f)]
+    public float MeteoroidDamageAmount = 0.2f;
+
     // Awake.
     private void Awake()
     {
@@ -38,9 +41,15 @@ public class EnergyController : MonoBehaviour
         EnergyHandler.Instance.SetEnergyAmount(CurrentEnergyAmount);
 	}
 
-    // Add energy.
+    // Add energy (crystal).
     public void AddEnergy()
     {
         CurrentEnergyAmount += CrystalEnergyAmount;
+    }
+
+    // Remove energy (meteoroid).
+    public void RemoveEnergy()
+    {
+        CurrentEnergyAmount -= MeteoroidDamageAmount;
     }
 }

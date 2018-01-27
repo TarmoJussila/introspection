@@ -24,7 +24,7 @@ public enum SoundType
 }
 
 /// <summary>
-/// Audio controller.
+/// Audio controller. Persistent.
 /// </summary>
 public class AudioController : MonoBehaviour
 {
@@ -64,10 +64,18 @@ public class AudioController : MonoBehaviour
     [Range(-3.0f, 3.0f)]
     public float PitchVarianceMax = 1.2f;
 
-    // Awake.
+    // Awake. Persistent.
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Start.
