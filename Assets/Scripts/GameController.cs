@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
 
     public GameState CurrentGameState;
 
+    public bool IsCursorVisible = false;
+
     // Awake.
     private void Awake()
     {
@@ -29,6 +31,8 @@ public class GameController : MonoBehaviour
     // Start.
     private void Start()
     {
+        Cursor.visible = IsCursorVisible;
+
         ChangeGameState(CurrentGameState);
     }
 
