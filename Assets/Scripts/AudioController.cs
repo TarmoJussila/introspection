@@ -23,7 +23,7 @@ public enum SoundType
 }
 
 /// <summary>
-/// AudioController.
+/// Audio controller.
 /// </summary>
 public class AudioController : MonoBehaviour
 {
