@@ -121,9 +121,15 @@ public class AudioController : MonoBehaviour
     {
         PlaySound(soundType, false, pitchAmount);
     }
-    
+
+    // Play sound (with given pitch and volume).
+    public void PlaySound(SoundType soundType, float pitchAmount, float volumeAmount)
+    {
+        PlaySound(soundType, false, pitchAmount, false, volumeAmount);
+    }
+
     // Play sound.
-    public void PlaySound(SoundType soundType, bool isRandomPitch = true, float pitchAmount = 1.0f)
+    public void PlaySound(SoundType soundType, bool isRandomPitch = true, float pitchAmount = 1.0f, bool isRandomVolume = true, float volumeAmount = 1.0f)
     {
         AudioClip soundClip = CollectSound;
 
@@ -150,8 +156,11 @@ public class AudioController : MonoBehaviour
                 break;
             }
         }
-        
-        float volumeAmount = Random.Range(VolumeVarianceMin, VolumeVarianceMax);
+
+        if (isRandomVolume)
+        {
+            volumeAmount = Random.Range(VolumeVarianceMin, VolumeVarianceMax);
+        }
 
         if (isRandomPitch)
         {
