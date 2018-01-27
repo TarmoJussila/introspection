@@ -11,16 +11,18 @@ public class Crystal : MonoBehaviour
     public bool IsConsuming = false;
 
     public float ConsumeDelayTime = 0.5f;
-
-    public float ConsumeSoundPitchGrowth = 0.1f;
-    public float ConsumeSoundBasePitch = 1.0f;
-
     public Material ConsumedMaterial;
 
     public List<MeshRenderer> MeshRenderers = new List<MeshRenderer>();
 
-	// Start.
-	private void Start()
+    private int initialCrystalCount;
+
+    [Header("Sound Settings")]
+    public float ConsumeSoundPitchGrowth = 0.15f;
+    public float ConsumeSoundBasePitch = 1.0f;
+
+    // Start.
+    private void Start()
 	{
         var meshRenderers = GetComponentsInChildren<MeshRenderer>();
 
@@ -30,6 +32,8 @@ public class Crystal : MonoBehaviour
 
         // Remove base renderer from list (will remain unchanged).
         MeshRenderers.Remove(baseMeshRenderer);
+
+        initialCrystalCount = MeshRenderers.Count;
 	}
 
     // Check crystal consume state. Disable renderers with delay.
@@ -43,12 +47,11 @@ public class Crystal : MonoBehaviour
 
             if (MeshRenderers.Count > 0)
             {
-                int crystalCount = MeshRenderers.Count;
+                int currentCrystalCount = MeshRenderers.Count;
 
                 foreach (var meshRenderer in MeshRenderers)
                 {
                     selectedMeshRenderer = meshRenderer;
-                    //selectedMeshRenderer.enabled = false;
                     break;
                 }
                 
@@ -60,7 +63,7 @@ public class Crystal : MonoBehaviour
 
                 EnergyController.Instance.AddEnergy();
 
-                AudioController.Instance.PlaySound(SoundType.Collect, ConsumeSoundBasePitch + crystalCount * ConsumeSoundPitchGrowth);
+                AudioController.Instance.PlaySound(SoundType.Collect, ConsumeSoundBasePitch + (initialCrystalCount - currentCrystalCount) * ConsumeSoundPitchGrowth);
             }
             else
             {
