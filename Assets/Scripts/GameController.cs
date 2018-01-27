@@ -13,7 +13,7 @@ public enum GameState
 }
 
 /// <summary>
-/// Game controller. Controls game states.
+/// Game controller. Controls game states. Persistent.
 /// </summary>
 public class GameController : MonoBehaviour
 {
@@ -26,12 +26,18 @@ public class GameController : MonoBehaviour
 
     public bool IsCursorVisibleInGame = false;
 
-    // Awake.
+    // Awake. Persistent.
     private void Awake()
     {
-        Instance = this;
-
-        DontDestroyOnLoad(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Start.
@@ -47,7 +53,14 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            if (CurrentGameState == GameState.Menu)
+            {
+                Application.Quit();
+            }
+            else if (CurrentGameState == GameState.Game)
+            {
+                ChangeGameState(GameState.Menu);
+            }
         }
     }
 
@@ -63,6 +76,10 @@ public class GameController : MonoBehaviour
         if (previousGameState == GameState.Menu && CurrentGameState == GameState.Game)
         {
             SceneManager.LoadSceneAsync(GameSceneIndex, LoadSceneMode.Single);
+        }
+        else if (previousGameState == GameState.Game && CurrentGameState == GameState.Menu)
+        {
+            SceneManager.LoadSceneAsync(MenuSceneIndex, LoadSceneMode.Single);
         }
     }
 
