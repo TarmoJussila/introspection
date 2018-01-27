@@ -74,6 +74,8 @@ public class Crystal : MonoBehaviour
         {
             IsConsuming = true;
 
+            StopAllCoroutines();
+
             StartCoroutine(CheckConsumeState());
         }
     }
