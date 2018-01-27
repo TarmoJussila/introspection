@@ -69,6 +69,8 @@ public class Player : MonoBehaviour
     // Fixed update.
     private void FixedUpdate()
     {
+        if (dead)
+            return;
         RaycastHit hit = new RaycastHit();
 
         if (Physics.Raycast(transform.position, CurrentPlanet.position - transform.position, out hit))
