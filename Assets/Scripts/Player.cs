@@ -17,7 +17,8 @@ public class Player : MonoBehaviour {
 	public float FloatHeight;
 
 	private Vector2 movementVector;
-	private Vector3 groundNormal;
+
+	public Vector3 GroundNormal;
 
 	public Transform CurrentPlanet;
 	public bool InAtmosphere;
@@ -48,14 +49,14 @@ public class Player : MonoBehaviour {
 	private void FixedUpdate () {
 		RaycastHit hit = new RaycastHit ();
 		if (Physics.Raycast (transform.position, CurrentPlanet.position - transform.position, out hit)) {
-			groundNormal = (transform.position - hit.point).normalized;
+			GroundNormal = (transform.position - hit.point).normalized;
 		}
 
 		Quaternion rot = Quaternion.FromToRotation (transform.up, hit.normal) * transform.rotation;
 		transform.rotation = Quaternion.RotateTowards (transform.rotation, rot, 0.1f);
 		transform.Rotate (new Vector3 (0, Input.GetAxisRaw (RotateAxis) * RotateSpeed, 0));
 
-		Vector3 targetPos = hit.point + (groundNormal * FloatHeight);
+		Vector3 targetPos = hit.point + (GroundNormal * FloatHeight);
 
 		hit = new RaycastHit ();
         
