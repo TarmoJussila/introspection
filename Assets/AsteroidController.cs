@@ -37,8 +37,9 @@ public class AsteroidController : MonoBehaviour {
 		int force = (int)Random.Range (MinAsteroidForce, MaxAsteroidForce);
 		print ("shooting asteroid with force of " + force);
 		Vector3 targetPos = player.position;
-		targetPos += player.forward * Random.Range (3, 15);
-		asteroid.GetComponent<Rigidbody> ().AddForce ((player.position - transform.position) * force);
+		targetPos += player.forward * Random.Range (-10, 10);
+		targetPos += player.right * Random.Range (-10, 10);
+		asteroid.GetComponent<Rigidbody> ().AddForce ((targetPos - transform.position) * force);
 	
 		Invoke ("ShootAsteroid", Random.Range (MinAsteroidFrequency, MaxAsteroidFrequency));
 
