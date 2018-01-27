@@ -2,17 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlanetGenerator : MonoBehaviour {
-
-	// Settings
-
-	public bool Deform = false;
-	public bool SpawnObstacles = true;
-
-	public GameObject RockPrefab;
-	public GameObject CrystalPrefab;
-
-	// Deforming vars
+public class Deformer : MonoBehaviour {
 
 	public float Scale = 1;
 	public float Speed = 1;
@@ -20,8 +10,6 @@ public class PlanetGenerator : MonoBehaviour {
 
 	private Vector3[] baseVertices;
 	private Perlin noise = new Perlin ();
-
-	// Planet vars
 
 	public GameObject Planet;
 
@@ -32,19 +20,19 @@ public class PlanetGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		if (Planet == null) Planet = gameObject;
-
-		Mesh mesh = Planet.GetComponent<MeshFilter> ().mesh;
+		mesh = GetComponent<MeshFilter> ().mesh;
 		baseVertices = mesh.vertices;
 
 		collider = GetComponent<MeshCollider> ();
 
-		if (Deform) DeformMesh ();
-		if (SpawnObstacles) SpawnProps ();
-
+		DeformMesh ();
+		
 	}
 
 	void DeformMesh () {
+
+		float newScale = Random.Range (3f, 10f);
+		transform.localScale = new Vector3 (newScale, newScale, newScale);
 
 		var vertices = new Vector3[baseVertices.Length];
 
@@ -67,28 +55,5 @@ public class PlanetGenerator : MonoBehaviour {
 		mesh.RecalculateBounds ();
 		collider.sharedMesh = mesh;
 
-	}
-
-	void SpawnProps () {
-
-		foreach (Vector3 vert in baseVertices) {
-
-			int chance = Random.Range (0, 100);
-
-			if (chance < 7) {
-				
-				var prop = (GameObject)Instantiate (CrystalPrefab, vert * transform.localScale.x, Quaternion.identity);
-				prop.transform.up = (prop.transform.position - transform.position).normalized;
-
-			} else if (chance < 35) {
-
-				var prop = (GameObject)Instantiate (RockPrefab, vert * transform.localScale.x, Quaternion.identity);
-				//prop.transform.up = (prop.transform.position - transform.position).normalized;
-				transform.rotation = Random.rotation;
-
-			}		
-		
-		}	
-	
 	}
 }
