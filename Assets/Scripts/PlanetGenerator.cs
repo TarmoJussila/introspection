@@ -98,7 +98,8 @@ public class PlanetGenerator : MonoBehaviour
 
             baseVertices.RemoveAt(randomIndex);
 
-            ObjectiveController.Instance.Objectives.Add(objective);
+            var objectiveScript = objective.GetComponentInChildren<Objective>();
+            ObjectiveController.Instance.Objectives.Add(objectiveScript);
         }
     }
 
