@@ -30,10 +30,12 @@ The game is made with **Unity 2017.2.0f3**.
 
 
 # *Spaceknot* - The Team
-Aleksi Toivonen
+Tarmo Jussila - Programming & UI Design
 
-Juhani Haverinen
+Aleksi Toivonen - Programming & Modeling
 
-Tarmo Jussila
+Juhani Haverinen - Music & Sound Design
+
+All of us - Game Design
 
  --- *Good Luck & Have Fun - The Spaceknot Team*
