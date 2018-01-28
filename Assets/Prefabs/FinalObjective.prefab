@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 33050853383847954}
   - component: {fileID: 23927622018188956}
   - component: {fileID: 65860039254094660}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,6 @@ GameObject:
   - component: {fileID: 224495570564539386}
   - component: {fileID: 223783308649630438}
   - component: {fileID: 114039742126406116}
-  - component: {fileID: 114292406501878542}
   m_Layer: 2
   m_Name: BeamCanvas
   m_TagString: Untagged
@@ -387,6 +386,7 @@ GameObject:
   - component: {fileID: 224105342648155966}
   - component: {fileID: 222353583172014466}
   - component: {fileID: 114249869686007402}
+  - component: {fileID: 114208436336413262}
   m_Layer: 2
   m_Name: BeamSprite
   m_TagString: Untagged
@@ -709,7 +709,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1611750043142892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 251, z: 12}
+  m_LocalPosition: {x: 0.5, y: 251, z: 25}
   m_LocalScale: {x: 10, y: 1, z: 15}
   m_Children:
   - {fileID: 4054051260350748}
@@ -2548,6 +2548,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114208436336413262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568749206958832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7114b0670378484478d6f1d5fcfa2df4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114249869686007402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2575,17 +2586,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114292406501878542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1196988679028656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7114b0670378484478d6f1d5fcfa2df4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114805627926328688
 MonoBehaviour:
   m_ObjectHideFlags: 1
