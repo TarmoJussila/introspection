@@ -55,3 +55,4 @@ MonoBehaviour:
   MenuSceneIndex: 0
   GameSceneIndex: 1
   IsCursorVisibleInGame: 0
+  EndGameDelay: 5
