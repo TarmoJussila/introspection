@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        measurers = Vector3[FrontMeasurer, BackMeasurer, LeftMeasurer, RightMeasurer];
+        measurers = new Transform[] {FrontMeasurer, BackMeasurer, LeftMeasurer, RightMeasurer};
     }
 
     // Update.
@@ -159,7 +159,7 @@ public class Player : MonoBehaviour
     void CheckNearestPoint () {
 
         Vector3 point = ObjectiveController.Instance.closestPoint;
-        string direction;
+        string direction = "";
         float closestDistance = 100000;
 
         foreach (Transform t in measurers)
@@ -172,19 +172,28 @@ public class Player : MonoBehaviour
             }
         }
 
+        DirectionType dir;
+
         switch (direction)
         {
             case "Front":
+                dir = DirectionType.Up;
                 break;
             case "Back":
+                dir = DirectionType.Down;
                 break;
             case "Left":
+                dir = DirectionType.Left;
                 break;
             case "Right":
+                dir = DirectionType.Right;
                 break;
             default: 
+                dir = DirectionType.None;
                 break;
         }
+
+        ObjectiveHandler.Instance.ShowDirectionArrow(dir);
 
     }
 
