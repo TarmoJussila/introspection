@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// ObjectiveProgressState.
+/// Objective progress state.
 /// </summary>
 public class ObjectiveProgressState : MonoBehaviour
 {
@@ -12,11 +12,11 @@ public class ObjectiveProgressState : MonoBehaviour
 
     public Image ProgressFill;
 
-	// Start.
-	private void Start()
-	{
+    // Start.
+    private void Start()
+    {
         MarkCompleted(false);
-	}
+    }
 
     // Mark completed.
     public void MarkCompleted(bool isVisible)
