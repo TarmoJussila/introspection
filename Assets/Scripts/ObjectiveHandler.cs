@@ -8,8 +8,8 @@ using UnityEngine.UI;
 /// </summary>
 public enum ObjectiveType
 {
-    Collect,
-    Transmission
+    Objective,
+    FinalObjective
 }
 
 /// <summary>
@@ -36,7 +36,6 @@ public class ObjectiveHandler : MonoBehaviour
     public Animator ObjectiveAnimator;
 
     public Image ObjectiveProximityFill;
-    public Image TransmissionObjective;
 
     public Image DirectionUp;
     public Image DirectionDown;
@@ -50,6 +49,8 @@ public class ObjectiveHandler : MonoBehaviour
     public RectTransform ObjectiveProgressContainer;
 
     public ObjectiveProgressState ObjectiveProgressStatePrefab;
+
+    public ObjectiveProgressState FinalObjective;
 
     public Dictionary<int, ObjectiveProgressState> ObjectiveProgressIndicators = new Dictionary<int, ObjectiveProgressState>();
 
@@ -76,14 +77,14 @@ public class ObjectiveHandler : MonoBehaviour
 
         switch (objectiveType)
         {
-            case ObjectiveType.Collect:
+            case ObjectiveType.Objective:
             {
-                //TransmissionObjective.enabled = false;
+                FinalObjective.gameObject.SetActive(false);
                 break;
             }
-            case ObjectiveType.Transmission:
+            case ObjectiveType.FinalObjective:
             {
-                //TransmissionObjective.enabled = true;
+                FinalObjective.gameObject.SetActive(true);
                 break;
             }
         }
@@ -159,11 +160,23 @@ public class ObjectiveHandler : MonoBehaviour
     // Mark objective completed.
     public void MarkObjectiveCompleted()
     {
-        if (currentObjectiveIndex <= ObjectiveController.Instance.ObjectivePointAmount)
+        // Normal objective.
+        if (currentObjectiveIndex < ObjectiveController.Instance.ObjectivePointAmount)
         {
             ObjectiveProgressIndicators[currentObjectiveIndex].MarkCompleted(true);
 
             currentObjectiveIndex++;
+
+            // Set final objective as active objective.
+            if (currentObjectiveIndex == ObjectiveController.Instance.ObjectivePointAmount - 1)
+            {
+                SetObjective(ObjectiveType.FinalObjective);
+            }
+        }
+        // Final objective.
+        else
+        {
+            FinalObjective.MarkCompleted(true);
         }
     }
 }

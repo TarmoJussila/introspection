@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
     {
         if (dead)
             return;
+
         RaycastHit hit = new RaycastHit();
 
         if (Physics.Raycast(transform.position, CurrentPlanet.position - transform.position, out hit))
@@ -159,10 +160,9 @@ public class Player : MonoBehaviour
 
     public void CheckNearestPoint()
     {
-
         Vector3 point = ObjectiveController.Instance.ClosestPoint;
         string direction = "";
-        float closestDistance = 100000;
+        float closestDistance = float.MaxValue;
 
         foreach (Transform t in measurers)
         {
@@ -179,31 +179,33 @@ public class Player : MonoBehaviour
         switch (direction)
         {
             case "Front":
-                dir = DirectionType.Up;
-                break;
+            dir = DirectionType.Up;
+            break;
+
             case "Back":
-                dir = DirectionType.Down;
-                break;
+            dir = DirectionType.Down;
+            break;
+
             case "Left":
-                dir = DirectionType.Left;
-                break;
+            dir = DirectionType.Left;
+            break;
+
             case "Right":
-                dir = DirectionType.Right;
-                break;
-            default: 
-                dir = DirectionType.None;
-                break;
+            dir = DirectionType.Right;
+            break;
+
+            default:
+            dir = DirectionType.None;
+            break;
         }
 
         print("direction: " + dir);
 
         ObjectiveHandler.Instance.ShowDirectionArrow(dir);
-
     }
 
     public void ClearSurroundings()
     {
-
         var cols = Physics.OverlapSphere(transform.position, 7);
         foreach (Collider c in cols)
         {
@@ -212,9 +214,7 @@ public class Player : MonoBehaviour
                 print(c.name);
                 Destroy(c.gameObject);
             }
-                
         }
-
     }
 
     // On collision
