@@ -32,8 +32,6 @@ public class ObjectiveController : MonoBehaviour
 {
     public static ObjectiveController Instance { get; private set; }
 
-    public Vector3 ClosestPoint;
-
     [Range(1, 10)]
     public int ObjectivePointAmount = 5;
 
@@ -55,6 +53,8 @@ public class ObjectiveController : MonoBehaviour
 
     public List<Objective> Objectives = new List<Objective>();
     public Objective FinalObjective;
+
+    public Vector3 ClosestPoint;
 
     [Header("Post Processing")]
     public PostProcessingProfile PostProcessingProfile;
