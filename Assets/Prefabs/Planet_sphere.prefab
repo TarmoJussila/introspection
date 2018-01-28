@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85d65ee02c7e1849be36b8d0437271a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnsPerLoop: 50
+  SpawnsPerLoop: 10000
   Deform: 0
   SpawnObstacles: 1
   RockChance: 35
