@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 64757777615133096}
   m_Layer: 8
   m_Name: Rock
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinRockSize: 1.5
-  MaxRockSize: 30
+  MaxRockSize: 35
   Scale: 0.8
   Speed: 1
   RecalculateNormals: 1

@@ -74,6 +74,20 @@ public class ObjectiveController : MonoBehaviour
         StartCoroutine(InitialWaitTime());
     }
 
+    public void ClearObjectiveSurroundings () {
+    
+        foreach (Objective o in Objectives)
+        {
+            var cols = Physics.OverlapSphere(o.transform.position, 7);
+            foreach (Collider c in cols)
+            {
+                if (c.CompareTag("Rock"))
+                    Destroy(c.gameObject);
+            }
+        }
+    
+    }
+
     private IEnumerator InitialWaitTime()
     {
         yield return new WaitForSeconds(InitialDistanceCheckWaitTime);

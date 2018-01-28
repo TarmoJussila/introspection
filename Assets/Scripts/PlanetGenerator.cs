@@ -22,6 +22,7 @@ public class PlanetGenerator : MonoBehaviour
     public GameObject RockPrefab;
     public GameObject CrystalPrefab;
     public GameObject ObjectivePrefab;
+    public GameObject FinalObjective;
 
     [Header("Deformation")]
     public float Scale = 1;
@@ -97,13 +98,20 @@ public class PlanetGenerator : MonoBehaviour
     {
         int objectiveAmount = ObjectiveController.Instance.ObjectivePointAmount;
 
-        for (int i = 0; i < objectiveAmount; i++)
+        for (int i = 0; i <= objectiveAmount; i++)
         {
             int randomIndex = Random.Range(0, baseVertices.Count);
 
             var randomVertice = baseVertices[randomIndex];
 
-            var objective = (GameObject)Instantiate(ObjectivePrefab, randomVertice * transform.localScale.x, Quaternion.identity);
+            GameObject objective;
+            if (i == objectiveAmount)
+            {
+                objective = (GameObject)Instantiate(FinalObjective, randomVertice * transform.localScale.x, Quaternion.identity);
+            } else {
+                objective = (GameObject)Instantiate(ObjectivePrefab, randomVertice * transform.localScale.x, Quaternion.identity);
+            }
+                
             objective.transform.SetParent(ObjectiveController.Instance.transform);
             objective.transform.up = (objective.transform.position - transform.position).normalized;
 
@@ -112,6 +120,7 @@ public class PlanetGenerator : MonoBehaviour
             var objectiveScript = objective.GetComponentInChildren<Objective>();
             ObjectiveController.Instance.Objectives.Add(objectiveScript);
         }
+
     }
 
     // Spawn props.
@@ -150,5 +159,8 @@ public class PlanetGenerator : MonoBehaviour
                 yield return null;
             }
         }
+
+        ObjectiveController.Instance.ClearObjectiveSurroundings();
+        Player.Instance.ClearSurroundings();
     }
 }

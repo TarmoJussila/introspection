@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Meteor
+  - Rock
   layers:
   - Default
   - TransparentFX

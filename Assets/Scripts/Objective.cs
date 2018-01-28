@@ -6,13 +6,15 @@
 public class Objective : MonoBehaviour
 {
     public bool IsActivated = false;
+    public bool IsFinal = false;
 
     public GameObject Light;
 
     // Start.
     private void Start()
     {
-        Light.SetActive(IsActivated);
+        if (Light != null)
+            Light.SetActive(IsActivated);
     }
 
     // Disable objective when touched.
@@ -20,11 +22,20 @@ public class Objective : MonoBehaviour
     {
         if (!IsActivated && otherCollider.CompareTag("Player"))
         {
-            Light.SetActive(true);
+            if (!IsFinal)
+            {
+                if (Light != null)
+                    Light.SetActive(true);
 
-            IsActivated = true;
+                IsActivated = true;
 
-            AudioController.Instance.PlaySound(SoundType.Objective);
+                AudioController.Instance.PlaySound(SoundType.Objective);
+            }
+            else
+            {
+                
+            }
+
         }
     }
 }

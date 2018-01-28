@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        measurers = new Transform[] {FrontMeasurer, BackMeasurer, LeftMeasurer, RightMeasurer};
+        measurers = new Transform[] { FrontMeasurer, BackMeasurer, LeftMeasurer, RightMeasurer };
         CheckNearestPoint();
     }
 
@@ -157,7 +157,8 @@ public class Player : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetPos, currentMoveSpeed);
     }
 
-    public void CheckNearestPoint () {
+    public void CheckNearestPoint()
+    {
 
         Vector3 point = ObjectiveController.Instance.closestPoint;
         string direction = "";
@@ -197,6 +198,18 @@ public class Player : MonoBehaviour
         print("direction: " + dir);
 
         ObjectiveHandler.Instance.ShowDirectionArrow(dir);
+
+    }
+
+    public void ClearSurroundings()
+    {
+
+        var cols = Physics.OverlapSphere(transform.position, 7);
+        foreach (Collider c in cols)
+        {
+            if (c.CompareTag("Rock"))
+                Destroy(c.gameObject);
+        }
 
     }
 
