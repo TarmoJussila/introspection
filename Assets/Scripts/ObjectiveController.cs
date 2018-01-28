@@ -155,6 +155,7 @@ public class ObjectiveController : MonoBehaviour
             else
             {
                 ObjectiveHandler.Instance.ShowDirectionArrow(DirectionType.None);
+                GameController.Instance.ChangeGameState(GameState.End); // The end.
                 yield break;
             }
         }

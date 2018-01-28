@@ -7,9 +7,8 @@ using UnityEngine.SceneManagement;
 public enum GameState
 {
     Menu,   // Menu.
-    Intro,  // Intro (start cutscene).
     Game,   // Game.
-    Outro   // Outro (end cutscene).
+    End     // End.
 }
 
 /// <summary>
@@ -72,7 +71,7 @@ public class GameController : MonoBehaviour
     }
 
     // Change game state.
-    private void ChangeGameState(GameState gameState)
+    public void ChangeGameState(GameState gameState)
     {
         var previousGameState = CurrentGameState;
 
