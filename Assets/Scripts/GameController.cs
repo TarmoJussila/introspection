@@ -51,11 +51,18 @@ public class GameController : MonoBehaviour
     // Update.
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button6))
         {
             if (CurrentGameState == GameState.Menu)
             {
-                Application.Quit();
+                if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Joystick1Button7))
+                {
+                    StartGame();
+                }
+                else
+                {
+                    Application.Quit();
+                }
             }
             else if (CurrentGameState == GameState.Game)
             {
