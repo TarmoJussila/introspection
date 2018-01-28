@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -24,6 +25,8 @@ public class GameController : MonoBehaviour
     public int GameSceneIndex = 1;
 
     public bool IsCursorVisibleInGame = false;
+
+    public float EndGameDelay = 5.0f;
 
     // Awake. Persistent.
     private void Awake()
@@ -83,9 +86,13 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadSceneAsync(GameSceneIndex, LoadSceneMode.Single);
         }
-        else if (previousGameState == GameState.Game && CurrentGameState == GameState.Menu)
+        else if ((previousGameState == GameState.Game || previousGameState == GameState.End) && CurrentGameState == GameState.Menu)
         {
             SceneManager.LoadSceneAsync(MenuSceneIndex, LoadSceneMode.Single);
+        }
+        else if (CurrentGameState == GameState.End)
+        {
+            StartCoroutine(EndGameWithDelay());
         }
     }
 
@@ -93,5 +100,13 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         ChangeGameState(GameState.Game);
+    }
+
+    // End game with delay.
+    private IEnumerator EndGameWithDelay()
+    {
+        yield return new WaitForSeconds(EndGameDelay);
+
+        ChangeGameState(GameState.Menu);
     }
 }

@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
                 movementVector = Vector3.zero;
                 rotateAmount = 0;
                 FloatHeight = 1;
+                GameController.Instance.ChangeGameState(GameState.End);
                 return;
             }
 
