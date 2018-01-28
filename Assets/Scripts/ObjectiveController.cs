@@ -78,11 +78,15 @@ public class ObjectiveController : MonoBehaviour
     
         foreach (Objective o in Objectives)
         {
-            var cols = Physics.OverlapSphere(o.transform.position, 7);
+            var cols = Physics.OverlapSphere(o.transform.position, 15);
             foreach (Collider c in cols)
             {
                 if (c.CompareTag("Rock"))
+                {
+                    print(c.name);
                     Destroy(c.gameObject);
+                }
+                    
             }
         }
     

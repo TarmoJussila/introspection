@@ -208,7 +208,11 @@ public class Player : MonoBehaviour
         foreach (Collider c in cols)
         {
             if (c.CompareTag("Rock"))
+            {
+                print(c.name);
                 Destroy(c.gameObject);
+            }
+                
         }
 
     }
