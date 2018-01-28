@@ -9,9 +9,9 @@ public class EnergyController : MonoBehaviour
 {
     public static EnergyController Instance { get; private set; }
 
-    public static bool IsJumping { get; set; }
+    public bool IsJumping;
 
-    public static bool IsSprinting { get; set; }
+    public bool IsSprinting;
 
     [Range(0.1f, 1.0f)]
     public float CurrentEnergyAmount = 1.0f;

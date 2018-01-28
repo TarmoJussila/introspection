@@ -28,6 +28,8 @@ public class ObjectiveController : MonoBehaviour
 {
     public static ObjectiveController Instance { get; private set; }
 
+    public Vector3 closestPoint;
+
     public int ObjectivePointAmount = 5;
     
     public ObjectiveIndicator LowIndicator;
@@ -90,6 +92,7 @@ public class ObjectiveController : MonoBehaviour
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
+                    closestPoint = objective.transform.position;
                 }
 
                 isAnyObjectiveAvailable = true;

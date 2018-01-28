@@ -19,6 +19,13 @@ public class Player : MonoBehaviour
     public float FloatHeight;
     public float JumpFloatHeight;
 
+    public Transform FrontMeasurer;
+    public Transform BackMeasurer;
+    public Transform LeftMeasurer;
+    public Transform RightMeasurer;
+
+    private Transform[] measurers;
+
     private float currentMoveSpeed;
 
     private Vector2 movementVector;
@@ -39,6 +46,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        measurers = Vector3[FrontMeasurer, BackMeasurer, LeftMeasurer, RightMeasurer];
     }
 
     // Update.
@@ -85,23 +93,23 @@ public class Player : MonoBehaviour
         Vector3 targetPos;
         if (Input.GetAxisRaw("LT") > 0)
         {
-            EnergyController.IsJumping = true;
+            EnergyController.Instance.IsJumping = true;
             targetPos = hit.point + (GroundNormal * JumpFloatHeight);
         }
         else
         {
-            EnergyController.IsJumping = false;
+            EnergyController.Instance.IsJumping = false;
             targetPos = hit.point + (GroundNormal * FloatHeight);
         }
 
         if (Input.GetAxisRaw("RT") > 0)
         {
-            EnergyController.IsSprinting = true;
+            EnergyController.Instance.IsSprinting = true;
             currentMoveSpeed = MoveSpeedSprinting;
         }
         else
         {
-            EnergyController.IsSprinting = false;
+            EnergyController.Instance.IsSprinting = false;
             currentMoveSpeed = MoveSpeed;
         }
            
@@ -151,6 +159,38 @@ public class Player : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetPos, currentMoveSpeed);
 
         
+    }
+
+    void CheckNearestPoint () {
+
+        Vector3 point = ObjectiveController.Instance.closestPoint;
+        string direction;
+        float closestDistance = 100000;
+
+        foreach (Transform t in measurers)
+        {
+            float dist = Vector3.Distance(t.position, point);
+            if (dist < closestDistance)
+            {
+                closestDistance = dist;
+                direction = t.name;
+            }
+        }
+
+        switch (direction)
+        {
+            case "Front":
+                break;
+            case "Back":
+                break;
+            case "Left":
+                break;
+            case "Right":
+                break;
+            default: 
+                break;
+        }
+
     }
 
     // On collision
