@@ -10,7 +10,6 @@ public class EnergyController : MonoBehaviour
     public static EnergyController Instance { get; private set; }
 
     public bool IsJumping;
-
     public bool IsSprinting;
 
     [Range(0.1f, 1.0f)]
@@ -43,34 +42,32 @@ public class EnergyController : MonoBehaviour
         Instance = this;
     }
 
-    // Start.
-    private void Start()
-    {
-    }
-
     // Update.
     private void Update()
     {
-        if (IsJumping && IsSprinting)
+        if (GameController.Instance.CurrentGameState != GameState.End)
         {
-            CurrentEnergyAmount -= Time.deltaTime * MaximumEnergyDecreaseTime;
-        }
-        else if (IsSprinting)
-        {
-            CurrentEnergyAmount -= Time.deltaTime * SprintingEnergyDecreaseTime;
-        }
-        else if (IsJumping)
-        {
-            CurrentEnergyAmount -= Time.deltaTime * JumpingEnergyDecreaseTime;
-        }
-        else
-        {
-            CurrentEnergyAmount -= Time.deltaTime * EnergyDecreaseTime;
-        }
+            if (IsJumping && IsSprinting)
+            {
+                CurrentEnergyAmount -= Time.deltaTime * MaximumEnergyDecreaseTime;
+            }
+            else if (IsSprinting)
+            {
+                CurrentEnergyAmount -= Time.deltaTime * SprintingEnergyDecreaseTime;
+            }
+            else if (IsJumping)
+            {
+                CurrentEnergyAmount -= Time.deltaTime * JumpingEnergyDecreaseTime;
+            }
+            else
+            {
+                CurrentEnergyAmount -= Time.deltaTime * EnergyDecreaseTime;
+            }
 
-        EnergyHandler.Instance.ShowMinusSign((IsJumping || IsSprinting));
+            EnergyHandler.Instance.ShowMinusSign((IsJumping || IsSprinting));
 
-        EnergyHandler.Instance.SetEnergyAmount(CurrentEnergyAmount);
+            EnergyHandler.Instance.SetEnergyAmount(CurrentEnergyAmount);
+        }
     }
 
     // Add energy (crystal).

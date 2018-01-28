@@ -39,8 +39,7 @@ public class Player : MonoBehaviour
     public Transform LeftRaycast;
     public Transform RightRaycast;
 
-    private bool grounded;
-    private bool dead = false;
+    private bool isDead = false;
 
     // Awake.
     private void Awake()
@@ -53,109 +52,115 @@ public class Player : MonoBehaviour
     // Update.
     private void Update()
     {
-        if (dead)
-            return;
-
-        if (EnergyController.Instance.CurrentEnergyAmount <= 0)
+        if (GameController.Instance.CurrentGameState != GameState.End)
         {
-            dead = true;
-            Dead();
-            movementVector = Vector3.zero;
-            rotateAmount = 0;
-            FloatHeight = 1;
-            return;
+            if (isDead)
+                return;
+
+            if (EnergyController.Instance.CurrentEnergyAmount <= 0)
+            {
+                isDead = true;
+                Dead();
+                movementVector = Vector3.zero;
+                rotateAmount = 0;
+                FloatHeight = 1;
+                return;
+            }
+
+            movementVector.x = Input.GetAxisRaw(HorizontalAxis);
+            movementVector.y = Input.GetAxisRaw(VerticalAxis);
+            rotateAmount = Input.GetAxisRaw(RotateAxis);
+
+            FloatHeight = Mathf.Sin(Time.time) + 3;
         }
-
-        movementVector.x = Input.GetAxisRaw(HorizontalAxis);
-        movementVector.y = Input.GetAxisRaw(VerticalAxis);
-        rotateAmount = Input.GetAxisRaw(RotateAxis);
-
-        FloatHeight = Mathf.Sin(Time.time) + 3;
     }
 
     // Fixed update.
     private void FixedUpdate()
     {
-        if (dead)
-            return;
+        if (GameController.Instance.CurrentGameState != GameState.End)
+        {
+            if (isDead)
+                return;
 
-        RaycastHit hit = new RaycastHit();
+            RaycastHit hit = new RaycastHit();
 
-        if (Physics.Raycast(transform.position, CurrentPlanet.position - transform.position, out hit))
-        {
-            GroundNormal = (transform.position - hit.point).normalized;
-        }
+            if (Physics.Raycast(transform.position, CurrentPlanet.position - transform.position, out hit))
+            {
+                GroundNormal = (transform.position - hit.point).normalized;
+            }
 
-        Quaternion rot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 0.1f);
-        transform.Rotate(new Vector3(0, rotateAmount * RotateSpeed, 0));
+            Quaternion rot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 0.1f);
+            transform.Rotate(new Vector3(0, rotateAmount * RotateSpeed, 0));
 
-        Vector3 targetPos;
-        if (Input.GetAxisRaw("LT") > 0)
-        {
-            EnergyController.Instance.IsJumping = true;
-            targetPos = hit.point + (GroundNormal * JumpFloatHeight);
-        }
-        else
-        {
-            EnergyController.Instance.IsJumping = false;
-            targetPos = hit.point + (GroundNormal * FloatHeight);
-        }
+            Vector3 targetPos;
+            if (Input.GetAxisRaw("LT") > 0)
+            {
+                EnergyController.Instance.IsJumping = true;
+                targetPos = hit.point + (GroundNormal * JumpFloatHeight);
+            }
+            else
+            {
+                EnergyController.Instance.IsJumping = false;
+                targetPos = hit.point + (GroundNormal * FloatHeight);
+            }
 
-        if (Input.GetAxisRaw("RT") > 0)
-        {
-            EnergyController.Instance.IsSprinting = true;
-            currentMoveSpeed = MoveSpeedSprinting;
-        }
-        else
-        {
-            EnergyController.Instance.IsSprinting = false;
-            currentMoveSpeed = MoveSpeed;
-        }
+            if (Input.GetAxisRaw("RT") > 0)
+            {
+                EnergyController.Instance.IsSprinting = true;
+                currentMoveSpeed = MoveSpeedSprinting;
+            }
+            else
+            {
+                EnergyController.Instance.IsSprinting = false;
+                currentMoveSpeed = MoveSpeed;
+            }
 
-        hit = new RaycastHit();
+            hit = new RaycastHit();
 
-        if (Physics.Raycast(LeftRaycast.position, transform.forward, out hit, 3))
-        {
-            Debug.DrawLine(transform.position, hit.point);
-        }
-        else if (Physics.Raycast(RightRaycast.position, transform.forward, out hit, 3))
-        {
-            Debug.DrawLine(transform.position, hit.point);
-        }
-        else if (movementVector.y > 0)
-        {
-            targetPos += transform.forward * movementVector.y;
-        }
+            if (Physics.Raycast(LeftRaycast.position, transform.forward, out hit, 3))
+            {
+                Debug.DrawLine(transform.position, hit.point);
+            }
+            else if (Physics.Raycast(RightRaycast.position, transform.forward, out hit, 3))
+            {
+                Debug.DrawLine(transform.position, hit.point);
+            }
+            else if (movementVector.y > 0)
+            {
+                targetPos += transform.forward * movementVector.y;
+            }
 
-        if (Physics.Raycast(transform.position, -transform.forward, out hit, 3))
-        {
-            Debug.DrawLine(transform.position, hit.point);
-        }
-        else if (movementVector.y < 0)
-        {
-            targetPos += transform.forward * movementVector.y;
-        }
+            if (Physics.Raycast(transform.position, -transform.forward, out hit, 3))
+            {
+                Debug.DrawLine(transform.position, hit.point);
+            }
+            else if (movementVector.y < 0)
+            {
+                targetPos += transform.forward * movementVector.y;
+            }
 
-        if (Physics.Raycast(transform.position, transform.right, out hit, 3))
-        {
-            Debug.DrawLine(transform.position, hit.point);
-        }
-        else if (movementVector.x > 0)
-        {
-            targetPos += transform.right * movementVector.x;
-        }
+            if (Physics.Raycast(transform.position, transform.right, out hit, 3))
+            {
+                Debug.DrawLine(transform.position, hit.point);
+            }
+            else if (movementVector.x > 0)
+            {
+                targetPos += transform.right * movementVector.x;
+            }
 
-        if (Physics.Raycast(transform.position, -transform.right, out hit, 3))
-        {
-            Debug.DrawLine(transform.position, hit.point);
-        }
-        else if (movementVector.x < 0)
-        {
-            targetPos += transform.right * movementVector.x;
-        }
+            if (Physics.Raycast(transform.position, -transform.right, out hit, 3))
+            {
+                Debug.DrawLine(transform.position, hit.point);
+            }
+            else if (movementVector.x < 0)
+            {
+                targetPos += transform.right * movementVector.x;
+            }
 
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, currentMoveSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, currentMoveSpeed);
+        }
     }
 
     public void CheckNearestPoint()
