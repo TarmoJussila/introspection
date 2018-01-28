@@ -51,10 +51,10 @@ public class ObjectiveController : MonoBehaviour
     public float DistanceCheckWaitTime = 1.0f;
     public float InitialDistanceCheckWaitTime = 3.0f;
 
+    public Vector3 ClosestPoint;
+
     public List<Objective> Objectives = new List<Objective>();
     public Objective FinalObjective;
-
-    public Vector3 ClosestPoint;
 
     [Header("Post Processing")]
     public PostProcessingProfile PostProcessingProfile;
