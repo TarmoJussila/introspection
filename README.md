@@ -13,33 +13,27 @@ On his free time Ozzy daydreams of destroying all organic lifeforms.
 The game is made with **Unity 2017.2.0f3**.
 
  1. Install Unity
- 2. Clone this repositorio
+ 2. Clone this repository
  3. Enjoy the game
 
 # Controls
 
-## Mouse and Keyboard
-
-**W:** 	Move Forward
-**S:** 		Move Backward
-**A:** 		Move Left
-**D:** 	Move Right
-**SPACEBAR:** Fly Up
-**SHIFT:** Speed Boost
-**Mouse:** Look Around
-
-
-## Controller
-
-**Left Stick:** Move
-**Right Stick:** Look Around
-**Left Trigger:** Fly Up
-**Right Trigger:** Speed Boost
+| Action        | Bind           | Controller  |
+| ------------- |:-------------:| -----:|
+| Move Forward     | W | Left Stick |
+| Move Backward     | S | Left Stick |
+| Move Left | A | Left Stick |
+| Move Right | D | Left Stick |
+| Look Around | Mouse | Right Stick |
+| Fly Up | Spacebar | Left Trigger |
+| Speed Boost | Shift | Right Trigger |
 
 
 # *Spaceknot* - The Team
 Aleksi Toivonen
+
 Juhani Haverinen
+
 Tarmo Jussila
 
  --- *Good Luck & Have Fun - The Spaceknot team*
