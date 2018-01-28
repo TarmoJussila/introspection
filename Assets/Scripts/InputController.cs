@@ -9,15 +9,14 @@ public class InputController : MonoBehaviour
 {
     public Rigidbody MovableRigidbody;
 
-	// Start.
-	private void Start()
-	{
-		
-	}
-	
-	// Update.
-	private void Update()
-	{
+    // Start.
+    private void Start()
+    {
+    }
+
+    // Update.
+    private void Update()
+    {
         if (MovableRigidbody != null)
         {
             if (Input.GetKeyDown(KeyCode.W))

@@ -46,9 +46,8 @@ public class EnergyController : MonoBehaviour
     // Start.
     private void Start()
     {
-		
     }
-	
+
     // Update.
     private void Update()
     {

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-
     private Rigidbody rb;
 
     public GameObject DeathParticles;
@@ -12,22 +11,18 @@ public class Asteroid : MonoBehaviour
 
     public float DeathDamageRadius = 7f;
 
-    void Start()
+    private void Start()
     {
-
         rb = GetComponent<Rigidbody>();
-
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-    
         projector.position = transform.position + rb.velocity.normalized * -4;
         projector.forward = rb.velocity.normalized;
-    
     }
 
-    void OnCollisionEnter(Collision coll)
+    private void OnCollisionEnter(Collision coll)
     {
         var cols = Physics.OverlapSphere(transform.position, DeathDamageRadius);
         foreach (var v in cols)
@@ -35,6 +30,5 @@ public class Asteroid : MonoBehaviour
                 v.SendMessage("HitByMeteor");
         GameObject g = (GameObject)Instantiate(DeathParticles, coll.contacts[0].point, Quaternion.identity);
         Destroy(gameObject);
-
     }
 }

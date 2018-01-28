@@ -82,10 +82,10 @@ public class AudioController : MonoBehaviour
 
     // Start.
     private void Start()
-	{
+    {
         PlayAmbient();
         PlayMusic(CurrentMusicType);
-	}
+    }
 
     // Play ambient.
     public void PlayAmbient()
@@ -94,9 +94,9 @@ public class AudioController : MonoBehaviour
 
         AmbientPlayer.Play();
     }
-	
+
     // Play music (change track).
-	public void PlayMusic(MusicType musicType)
+    public void PlayMusic(MusicType musicType)
     {
         CurrentMusicType = musicType;
 
@@ -184,7 +184,7 @@ public class AudioController : MonoBehaviour
 
         SoundPlayer.volume = volumeAmount;
         SoundPlayer.pitch = pitchAmount;
-        
+
         SoundPlayer.PlayOneShot(soundClip);
     }
 }

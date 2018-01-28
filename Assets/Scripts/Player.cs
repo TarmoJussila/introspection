@@ -64,14 +64,12 @@ public class Player : MonoBehaviour
             FloatHeight = 1;
             return;
         }
-            
-        
+
         movementVector.x = Input.GetAxisRaw(HorizontalAxis);
         movementVector.y = Input.GetAxisRaw(VerticalAxis);
         rotateAmount = Input.GetAxisRaw(RotateAxis);
 
         FloatHeight = Mathf.Sin(Time.time) + 3;
-       
     }
 
     // Fixed update.
@@ -112,10 +110,9 @@ public class Player : MonoBehaviour
             EnergyController.Instance.IsSprinting = false;
             currentMoveSpeed = MoveSpeed;
         }
-           
 
         hit = new RaycastHit();
-        
+
         if (Physics.Raycast(LeftRaycast.position, transform.forward, out hit, 3))
         {
             Debug.DrawLine(transform.position, hit.point);
@@ -157,8 +154,6 @@ public class Player : MonoBehaviour
         }
 
         transform.position = Vector3.MoveTowards(transform.position, targetPos, currentMoveSpeed);
-
-        
     }
 
     void CheckNearestPoint () {
@@ -194,22 +189,19 @@ public class Player : MonoBehaviour
     }
 
     // On collision
-    void OnCollisionEnter(Collision coll)
+    private void OnCollisionEnter(Collision coll)
     {
-
         if (coll.gameObject.CompareTag("Meteor"))
-            HitByMeteor();            
-
+            HitByMeteor();
     }
 
-    void HitByMeteor()
+    private void HitByMeteor()
     {
         EnergyController.Instance.RemoveEnergy();
     }
 
-    void Dead()
+    private void Dead()
     {
-    
         foreach (ParticleSystem p in GetComponentsInChildren<ParticleSystem>())
         {
             p.Stop();
@@ -218,6 +210,5 @@ public class Player : MonoBehaviour
         {
             l.enabled = false;
         }
-    
     }
 }

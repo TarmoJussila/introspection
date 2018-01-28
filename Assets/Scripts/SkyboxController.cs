@@ -27,7 +27,7 @@ public class SkyboxController : MonoBehaviour
 
     // Start.
     private void Start()
-	{
+    {
         SetRandomSkybox();
     }
 
