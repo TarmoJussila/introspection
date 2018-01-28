@@ -160,7 +160,7 @@ public class Player : MonoBehaviour
     public void CheckNearestPoint()
     {
 
-        Vector3 point = ObjectiveController.Instance.closestPoint;
+        Vector3 point = ObjectiveController.Instance.ClosestPoint;
         string direction = "";
         float closestDistance = 100000;
 

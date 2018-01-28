@@ -32,7 +32,7 @@ public class ObjectiveController : MonoBehaviour
 {
     public static ObjectiveController Instance { get; private set; }
 
-    public Vector3 closestPoint;
+    public Vector3 ClosestPoint;
 
     public int ObjectivePointAmount = 5;
 
@@ -129,10 +129,33 @@ public class ObjectiveController : MonoBehaviour
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
-                    closestPoint = objective.transform.position;
+                    ClosestPoint = objective.transform.position;
                 }
 
                 isAnyObjectiveAvailable = true;
+            }
+        }
+
+        // If final objective only one available.
+        if (!isAnyObjectiveAvailable)
+        {
+            // Point towards final objective.
+            if (!FinalObjective.IsActivated)
+            {
+                // Reveal final objective.
+                if (FinalObjective.gameObject.activeSelf)
+                {
+                    FinalObjective.gameObject.SetActive(true);
+                }
+
+                closestDistance = Vector3.Distance(Player.Instance.transform.position, FinalObjective.transform.position);
+                ClosestPoint = FinalObjective.transform.position;
+            }
+            // If final objective is also activated.
+            else
+            {
+                ObjectiveHandler.Instance.ShowDirectionArrow(DirectionType.None);
+                yield break;
             }
         }
 
