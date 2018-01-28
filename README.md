@@ -37,3 +37,7 @@ Aleksi Toivonen - Programming & Modeling
 Juhani Haverinen - Music & Sound Design
 
 All of us - Game Design
+
+# Download
+
+Executable (Windows): https://ggj.s3.amazonaws.com/games/2018/01/184589/exec/Ds9JY/Introspection_180128_0.7z
