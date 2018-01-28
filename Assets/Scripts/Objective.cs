@@ -26,7 +26,12 @@ public class Objective : MonoBehaviour
         {
             if (IsFinal)
             {
+                AudioController.Instance.PlaySound(SoundType.Transmission);
                 Debug.Log("The end!");
+            }
+            else
+            {
+                AudioController.Instance.PlaySound(SoundType.Objective);
             }
 
             if (Light != null)
@@ -37,8 +42,6 @@ public class Objective : MonoBehaviour
             IsActivated = true;
 
             ObjectiveHandler.Instance.MarkObjectiveCompleted();
-
-            AudioController.Instance.PlaySound(SoundType.Objective);
         }
     }
 
