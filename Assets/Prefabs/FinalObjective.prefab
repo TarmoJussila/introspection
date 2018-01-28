@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4684615229009910}
   - component: {fileID: 33809585126638284}
   - component: {fileID: 23811513028421280}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: antenna (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4170671076955950}
   - component: {fileID: 33369516110378708}
   - component: {fileID: 23114728316921414}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: antenna (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4970358812928986}
   - component: {fileID: 33747895421519128}
   - component: {fileID: 23564052072299596}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: antenna (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4899151495504058}
   - component: {fileID: 33748628353219774}
   - component: {fileID: 23554858331108290}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: antenna (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4351005503116242}
   - component: {fileID: 33346459758137678}
   - component: {fileID: 23244166519314378}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: antenna (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 4069533696440638}
   - component: {fileID: 33604040605485350}
   - component: {fileID: 23113546569380456}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: antenna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4129891553291558}
   - component: {fileID: 108711167239966108}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4928707205362266}
   - component: {fileID: 108272339292566190}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4835492520417688}
   - component: {fileID: 108333460400399476}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 4385638387967458}
   - component: {fileID: 33629501142510444}
   - component: {fileID: 23812567942058106}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pole1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4452127273137992}
   - component: {fileID: 108600624436785856}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4066211733696778}
   - component: {fileID: 108330354978029338}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 4697658187361860}
   - component: {fileID: 33901143015615680}
   - component: {fileID: 23673736148257834}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: antenna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4260580607620108}
   - component: {fileID: 108035686726184256}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 4686335659906150}
   - component: {fileID: 33435309540111782}
   - component: {fileID: 23797769775733580}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pole1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4054051260350748}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Transmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4457912825150144}
   - component: {fileID: 108103136656970324}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 4646939877147240}
   - component: {fileID: 33778837027080296}
   - component: {fileID: 23896468694120320}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: antenna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 4608200451652462}
   - component: {fileID: 33159159478657440}
   - component: {fileID: 23535192927493656}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pole1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4378750110274564}
   - component: {fileID: 108335040353302604}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 23389481527380248}
   - component: {fileID: 54265633049650360}
   - component: {fileID: 114805627926328688}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FinalObjective
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 4201470949120898}
   - component: {fileID: 33852155511988172}
   - component: {fileID: 23629190386461556}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: antenna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 4969369186780548}
   - component: {fileID: 33732536330314902}
   - component: {fileID: 23341541512976834}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4563645798592422}
   - component: {fileID: 108350059676634960}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4583291330597622}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Transmitter (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4223350051505516}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Transmitter (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4456528217926978}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Transmitter (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4211527970579662}
   - component: {fileID: 108958507046708526}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 4560308618783564}
   - component: {fileID: 33934016946387974}
   - component: {fileID: 23778421847490644}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: antenna (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 4995142854349992}
   - component: {fileID: 33164034713562784}
   - component: {fileID: 23572691085548330}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: antenna (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4594755712674946}
   - component: {fileID: 108907109865628866}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 4687709147053648}
   - component: {fileID: 33522056967329930}
   - component: {fileID: 23507590169381804}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: antenna (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4228860985957208}
   - component: {fileID: 108874336572209834}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 4216682418988882}
   - component: {fileID: 33539216468747216}
   - component: {fileID: 23733205322357692}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: pole1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1883,7 +1883,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &65696002255508634
 BoxCollider:
