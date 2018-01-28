@@ -20,8 +20,6 @@ public enum SoundType
     Collect,
     Objective,
     Transmission,
-    Meteoroid,
-    MeteoroidExplode,
     ShipExplode,
     Interference,
 }
@@ -53,8 +51,6 @@ public class AudioController : MonoBehaviour
     public AudioClip CollectSound;
     public AudioClip ObjectiveSound;
     public AudioClip TransmissionSound;
-    public AudioClip MeteoroidSound;
-    public AudioClip MeteoroidExplodeSound;
     public AudioClip ShipExplodeSound;
     public List<AudioClip> InterferenceSounds = new List<AudioClip>();
 
@@ -162,16 +158,6 @@ public class AudioController : MonoBehaviour
             case SoundType.Transmission:
             {
                 soundClip = TransmissionSound;
-                break;
-            }
-            case SoundType.Meteoroid:
-            {
-                soundClip = MeteoroidSound;
-                break;
-            }
-            case SoundType.MeteoroidExplode:
-            {
-                soundClip = MeteoroidExplodeSound;
                 break;
             }
             case SoundType.ShipExplode:
