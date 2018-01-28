@@ -54,12 +54,12 @@ MonoBehaviour:
   AsteroidPrefab: {fileID: 1815538265400120, guid: 9f5c8ddd45efd254bab1c49b81eba66e,
     type: 2}
   planet: {fileID: 0}
-  firstAsteroidTime: 5
+  firstAsteroidTime: 10
   MinAsteroidFrequency: 2.5
-  MaxAsteroidFrequency: 20
+  MaxAsteroidFrequency: 30
   MinAsteroidForce: 15
   MaxAsteroidForce: 30
   FloatHeight: 50
-  FrontOffset: 80
-  RearOffset: -5
-  LateralOffset: 20
+  FrontOffset: 75
+  RearOffset: -7.5
+  LateralOffset: 25
