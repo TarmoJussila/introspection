@@ -100,6 +100,9 @@ public class ObjectiveController : MonoBehaviour
                 Destroy(c.gameObject);
             }
         }
+
+        // Hide final objective (initially).
+        FinalObjective.gameObject.SetActive(false);
     }
 
     private IEnumerator InitialWaitTime()
