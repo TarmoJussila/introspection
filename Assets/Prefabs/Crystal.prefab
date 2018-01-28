@@ -504,8 +504,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 10, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5, y: 7, z: 5}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!114 &114696972782301236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -523,3 +523,4 @@ MonoBehaviour:
   MeshRenderers: []
   ConsumeSoundPitchGrowth: 0.15
   ConsumeSoundBasePitch: 1
+  ConsumeSoundVolume: 0.25

@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114803645843913892}
   - component: {fileID: 64258211783167762}
   - component: {fileID: 82004671598679164}
+  - component: {fileID: 114744763658154170}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Meteor
@@ -212,7 +213,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -225,6 +226,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114744763658154170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1815538265400120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c477e18a480c84e47a457c450774a000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VolumeMin: 0.75
+  VolumeMax: 1
+  PitchMin: 0.75
+  PitchMax: 1.25
 --- !u!114 &114803645843913892
 MonoBehaviour:
   m_ObjectHideFlags: 1

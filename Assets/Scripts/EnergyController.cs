@@ -16,6 +16,9 @@ public class EnergyController : MonoBehaviour
     [Range(0.1f, 1.0f)]
     public float CurrentEnergyAmount = 1.0f;
 
+    [Range(0.5f, 1.5f)]
+    public float MaxEnergyAmount = 1.0f;
+
     [Range(0.005f, 0.1f)]
     public float EnergyDecreaseTime = 0.1f;
 
@@ -74,7 +77,7 @@ public class EnergyController : MonoBehaviour
     // Add energy (crystal).
     public void AddEnergy()
     {
-        CurrentEnergyAmount += CrystalEnergyAmount;
+        CurrentEnergyAmount = Mathf.Min(CurrentEnergyAmount + CrystalEnergyAmount, MaxEnergyAmount);
     }
 
     // Remove energy (meteoroid).
