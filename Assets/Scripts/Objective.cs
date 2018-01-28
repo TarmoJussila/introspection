@@ -29,13 +29,13 @@ public class Objective : MonoBehaviour
 
                 IsActivated = true;
 
+                ObjectiveHandler.Instance.MarkObjectiveCompleted();
+
                 AudioController.Instance.PlaySound(SoundType.Objective);
             }
             else
             {
-                
             }
-
         }
     }
 }
