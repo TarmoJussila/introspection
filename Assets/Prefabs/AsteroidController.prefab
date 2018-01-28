@@ -60,6 +60,6 @@ MonoBehaviour:
   MinAsteroidForce: 15
   MaxAsteroidForce: 30
   FloatHeight: 50
-  FrontOffset: 100
+  FrontOffset: 80
   RearOffset: -5
   LateralOffset: 20
