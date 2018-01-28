@@ -26,20 +26,22 @@ public class Objective : MonoBehaviour
             {
                 if (Light != null)
                     Light.SetActive(true);
-
-                IsActivated = true;
-
-                ObjectiveHandler.Instance.MarkObjectiveCompleted();
-
-                AudioController.Instance.PlaySound(SoundType.Objective);
             }
             else
             {
+                Debug.Log("The end!");
             }
+
+            IsActivated = true;
+
+            ObjectiveHandler.Instance.MarkObjectiveCompleted();
+
+            AudioController.Instance.PlaySound(SoundType.Objective);
         }
     }
 
-    private void OnTriggerStay (Collider other) {
+    private void OnTriggerStay(Collider other)
+    {
         if (other.CompareTag("Rock"))
             Destroy(other.gameObject);
     }

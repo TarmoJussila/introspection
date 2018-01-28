@@ -143,7 +143,7 @@ public class ObjectiveController : MonoBehaviour
             if (!FinalObjective.IsActivated)
             {
                 // Reveal final objective.
-                if (FinalObjective.gameObject.activeSelf)
+                if (!FinalObjective.gameObject.activeSelf)
                 {
                     FinalObjective.gameObject.SetActive(true);
                 }
