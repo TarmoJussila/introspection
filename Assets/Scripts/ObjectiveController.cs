@@ -34,6 +34,7 @@ public class ObjectiveController : MonoBehaviour
 
     public Vector3 ClosestPoint;
 
+    [Range(1, 10)]
     public int ObjectivePointAmount = 5;
 
     public ObjectiveIndicator LowIndicator;

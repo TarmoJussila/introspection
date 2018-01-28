@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862549f389f517a4abf096e631d28778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closestPoint: {x: 0, y: 0, z: 0}
+  ClosestPoint: {x: 0, y: 0, z: 0}
   ObjectivePointAmount: 3
   LowIndicator:
     IndicatorDistance: 100
@@ -82,5 +82,6 @@ MonoBehaviour:
   DistanceCheckWaitTime: 1
   InitialDistanceCheckWaitTime: 2.5
   Objectives: []
+  FinalObjective: {fileID: 0}
   PostProcessingProfile: {fileID: 11400000, guid: f99fdf647c21fed4cbebfc59b01d65bc,
     type: 2}
