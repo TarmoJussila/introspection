@@ -165,13 +165,13 @@ public class ObjectiveHandler : MonoBehaviour
         {
             ObjectiveProgressIndicators[currentObjectiveIndex].MarkCompleted(true);
 
-            currentObjectiveIndex++;
-
             // Set final objective as active objective.
             if (currentObjectiveIndex == ObjectiveController.Instance.ObjectivePointAmount - 1)
             {
                 SetObjective(ObjectiveType.FinalObjective);
             }
+
+            currentObjectiveIndex++;
         }
         // Final objective.
         else
