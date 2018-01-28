@@ -135,6 +135,8 @@ public class ObjectiveController : MonoBehaviour
 
         Debug.Log("Closest distance: " + closestDistance + " / Objectives available: " + isAnyObjectiveAvailable);
 
+        Player.Instance.CheckNearestPoint();
+
         yield return new WaitForSeconds(DistanceCheckWaitTime);
 
         yield return CheckObjectiveDistance();
