@@ -46,6 +46,15 @@ public class ObjectiveHandler : MonoBehaviour
     public float AnimatorPlaybackSpeedMax = 10.0f;
     public float AnimatorPlaybackSpeedMin = 0.5f;
 
+    [Header("Objective Progress")]
+    public RectTransform ObjectiveProgressContainer;
+
+    public ObjectiveProgressState ObjectiveProgressStatePrefab;
+
+    public Dictionary<int, ObjectiveProgressState> ObjectiveProgressIndicators = new Dictionary<int, ObjectiveProgressState>();
+
+    private int currentObjectiveIndex = 0;
+
     // Awake.
     private void Awake()
     {
@@ -57,6 +66,7 @@ public class ObjectiveHandler : MonoBehaviour
     {
         SetObjective(CurrentObjective);
         ShowDirectionArrow(DirectionType.None);
+        CreateObjectiveProgressIndicators(ObjectiveController.Instance.ObjectivePointAmount);
     }
 
     // Set objective.
@@ -68,12 +78,12 @@ public class ObjectiveHandler : MonoBehaviour
         {
             case ObjectiveType.Collect:
             {
-                TransmissionObjective.enabled = false;
+                //TransmissionObjective.enabled = false;
                 break;
             }
             case ObjectiveType.Transmission:
             {
-                TransmissionObjective.enabled = true;
+                //TransmissionObjective.enabled = true;
                 break;
             }
         }
@@ -131,6 +141,29 @@ public class ObjectiveHandler : MonoBehaviour
                 DirectionRight.gameObject.SetActive(true);
                 break;
             }
+        }
+    }
+
+    // Create objective progress indicators.
+    public void CreateObjectiveProgressIndicators(int objectiveProgressAmount)
+    {
+        for (int i = 0; i < objectiveProgressAmount; i++)
+        {
+            var objectiveProgressIndicator = Instantiate(ObjectiveProgressStatePrefab, ObjectiveProgressContainer);
+            objectiveProgressIndicator.ObjectiveIndex = i;
+
+            ObjectiveProgressIndicators.Add(i, objectiveProgressIndicator);
+        }
+    }
+
+    // Mark objective completed.
+    public void MarkObjectiveCompleted()
+    {
+        if (currentObjectiveIndex <= ObjectiveController.Instance.ObjectivePointAmount)
+        {
+            ObjectiveProgressIndicators[currentObjectiveIndex].MarkCompleted(true);
+
+            currentObjectiveIndex++;
         }
     }
 }
