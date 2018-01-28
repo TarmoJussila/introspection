@@ -37,5 +37,3 @@ Aleksi Toivonen - Programming & Modeling
 Juhani Haverinen - Music & Sound Design
 
 All of us - Game Design
-
- --- *Good Luck & Have Fun - The Spaceknot Team*
