@@ -14,9 +14,10 @@ public class PlanetGenerator : MonoBehaviour
     public bool Deform = false;
     public bool SpawnObstacles = true;
 
-    [Range (0,100)]
+    [Range(0, 100)]
     public int RockChance;
-    [Range (0,100)]
+
+    [Range(0, 100)]
     public int CrystalChance;
 
     public GameObject RockPrefab;
@@ -108,19 +109,28 @@ public class PlanetGenerator : MonoBehaviour
             if (i == objectiveAmount)
             {
                 objective = (GameObject)Instantiate(FinalObjective, randomVertice * transform.localScale.x, Quaternion.identity);
-            } else {
+            }
+            else
+            {
                 objective = (GameObject)Instantiate(ObjectivePrefab, randomVertice * transform.localScale.x, Quaternion.identity);
             }
-                
+
             objective.transform.SetParent(ObjectiveController.Instance.transform);
             objective.transform.up = (objective.transform.position - transform.position).normalized;
 
             baseVertices.RemoveAt(randomIndex);
 
             var objectiveScript = objective.GetComponentInChildren<Objective>();
-            ObjectiveController.Instance.Objectives.Add(objectiveScript);
-        }
 
+            if (!objectiveScript.IsFinal)
+            {
+                ObjectiveController.Instance.Objectives.Add(objectiveScript);
+            }
+            else
+            {
+                ObjectiveController.Instance.FinalObjective = objectiveScript;
+            }
+        }
     }
 
     // Spawn props.

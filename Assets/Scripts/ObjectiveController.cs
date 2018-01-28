@@ -53,6 +53,7 @@ public class ObjectiveController : MonoBehaviour
     public float InitialDistanceCheckWaitTime = 3.0f;
 
     public List<Objective> Objectives = new List<Objective>();
+    public Objective FinalObjective;
 
     [Header("Post Processing")]
     public PostProcessingProfile PostProcessingProfile;
@@ -74,8 +75,8 @@ public class ObjectiveController : MonoBehaviour
         StartCoroutine(InitialWaitTime());
     }
 
-    public void ClearObjectiveSurroundings () {
-    
+    public void ClearObjectiveSurroundings()
+    {
         foreach (Objective o in Objectives)
         {
             var cols = Physics.OverlapSphere(o.transform.position, 15);
@@ -86,10 +87,19 @@ public class ObjectiveController : MonoBehaviour
                     print(c.name);
                     Destroy(c.gameObject);
                 }
-                    
             }
         }
-    
+
+        // Clear around final objective.
+        var finalObjectiveColliders = Physics.OverlapSphere(FinalObjective.transform.position, 30f);
+        foreach (Collider c in finalObjectiveColliders)
+        {
+            if (c.CompareTag("Rock"))
+            {
+                print(c.name);
+                Destroy(c.gameObject);
+            }
+        }
     }
 
     private IEnumerator InitialWaitTime()
