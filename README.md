@@ -1,7 +1,7 @@
 
 # INTROSPECTION
 
-**Team Spaceknot** is excited to introduce to you our game entry for Global Game Jam / Finnish Game Jam 2018. **Introspection** is a third person scifi puzzle game with atmospheric visuals and soundscapes.
+**Team Spaceknot** is excited to introduce to you our game entry for Global Game Jam / Finnish Game Jam 2018. **Introspection** is a third-person scifi puzzle game with atmospheric visuals and soundscapes.
 
 Ozzy the Android was accidentally left behind by his interstellar traveling crew on a hazardous asteroid. Now Ozzy has to find a way to send a message back to his friends while gathering resources and fighting for survival in the middle of a meteor shower. 
 
