@@ -300,7 +300,7 @@ Prefab:
     - target: {fileID: 224576579493729032, guid: c12fa903c918d5a4098c00aa06dc4819,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 333
+      value: 305
       objectReference: {fileID: 0}
     - target: {fileID: 224576579493729032, guid: c12fa903c918d5a4098c00aa06dc4819,
         type: 2}
@@ -335,7 +335,7 @@ Prefab:
     - target: {fileID: 224576579493729032, guid: c12fa903c918d5a4098c00aa06dc4819,
         type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 224576579493729032, guid: c12fa903c918d5a4098c00aa06dc4819,
         type: 2}
@@ -568,7 +568,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4626806412224326, guid: fcb647c5feefc9743a7bb909d9b112c6, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114975084835972788, guid: fcb647c5feefc9743a7bb909d9b112c6,
         type: 2}
@@ -625,12 +625,6 @@ Prefab:
       propertyPath: m_Name
       value: PlanetGenerator
       objectReference: {fileID: 0}
-    - target: {fileID: 114539268050599180, guid: 53c557439d6ccd540ae93f23a108a87c,
-        type: 2}
-      propertyPath: FinalObjective
-      value: 
-      objectReference: {fileID: 1611750043142892, guid: 44bb8d94a70530d4f954de39e6fbd272,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53c557439d6ccd540ae93f23a108a87c, type: 2}
   m_IsPrefabParent: 0

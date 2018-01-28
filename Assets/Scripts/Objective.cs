@@ -38,4 +38,9 @@ public class Objective : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerStay (Collider other) {
+        if (other.CompareTag("Rock"))
+            Destroy(other.gameObject);
+    }
 }

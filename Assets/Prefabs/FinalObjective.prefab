@@ -404,7 +404,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4969369186780548}
   - component: {fileID: 33732536330314902}
-  - component: {fileID: 136516829728623844}
   - component: {fileID: 23341541512976834}
   m_Layer: 0
   m_Name: Cylinder (1)
@@ -641,7 +640,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1611750043142892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 250.47, z: 0}
+  m_LocalPosition: {x: 0.5036677, y: 251.05516, z: 11.910989}
   m_LocalScale: {x: 10, y: 1, z: 15}
   m_Children:
   - {fileID: 4054051260350748}
@@ -2328,19 +2327,6 @@ MonoBehaviour:
   IsActivated: 0
   IsFinal: 1
   Light: {fileID: 0}
---- !u!136 &136516829728623844
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1625996109616010}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136713319586966426
 CapsuleCollider:
   m_ObjectHideFlags: 1
