@@ -14,7 +14,9 @@ public class Objective : MonoBehaviour
     private void Start()
     {
         if (Light != null)
+        {
             Light.SetActive(IsActivated);
+        }
     }
 
     // Disable objective when touched.
@@ -22,14 +24,14 @@ public class Objective : MonoBehaviour
     {
         if (!IsActivated && otherCollider.CompareTag("Player"))
         {
-            if (!IsFinal)
-            {
-                if (Light != null)
-                    Light.SetActive(true);
-            }
-            else
+            if (IsFinal)
             {
                 Debug.Log("The end!");
+            }
+
+            if (Light != null)
+            {
+                Light.SetActive(true);
             }
 
             IsActivated = true;
@@ -40,9 +42,12 @@ public class Objective : MonoBehaviour
         }
     }
 
+    // On trigger stay. Extra check for overlapping rocks.
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Rock"))
+        {
             Destroy(other.gameObject);
+        }
     }
 }
