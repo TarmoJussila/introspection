@@ -46,6 +46,11 @@ public class Player : MonoBehaviour
     {
         Instance = this;
         measurers = new Transform[] { FrontMeasurer, BackMeasurer, LeftMeasurer, RightMeasurer };
+    }
+
+    // Start.
+    private void Start()
+    {
         CheckNearestPoint();
     }
 
