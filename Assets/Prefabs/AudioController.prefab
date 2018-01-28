@@ -390,7 +390,7 @@ MonoBehaviour:
   OutroMusic: {fileID: 8300000, guid: 5e1ec2a41d2447d448fac4b2301b6fef, type: 3}
   SoundPlayer: {fileID: 82665648430038958}
   CollectSound: {fileID: 8300000, guid: 65cc7c15760034f7e905990643816835, type: 3}
-  ObjectiveSound: {fileID: 8300000, guid: 0fb5dccaf3e93492aaaa7af7e37ef256, type: 3}
+  ObjectiveSound: {fileID: 8300000, guid: 63213c5ce6df649d88e52d581cd2bafa, type: 3}
   TransmissionSound: {fileID: 8300000, guid: a0853f110dde04ceb8e26916a394a485, type: 3}
   ShipExplodeSound: {fileID: 8300000, guid: cbb88a765df0ea14c9ea1d043034860a, type: 3}
   InterferenceSounds:
