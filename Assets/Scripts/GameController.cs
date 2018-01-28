@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         Debug.unityLogger.logEnabled = Debug.isDebugBuild;
-        
+
         ChangeGameState(CurrentGameState);
     }
 

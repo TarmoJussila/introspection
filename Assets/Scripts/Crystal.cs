@@ -25,7 +25,7 @@ public class Crystal : MonoBehaviour
 
     // Start.
     private void Start()
-	{
+    {
         var meshRenderers = GetComponentsInChildren<MeshRenderer>();
 
         var baseMeshRenderer = meshRenderers[0];
@@ -36,7 +36,7 @@ public class Crystal : MonoBehaviour
         MeshRenderers.Remove(baseMeshRenderer);
 
         initialCrystalCount = MeshRenderers.Count;
-	}
+    }
 
     // Check crystal consume state. Disable renderers with delay.
     private IEnumerator CheckConsumeState()
@@ -56,7 +56,7 @@ public class Crystal : MonoBehaviour
                     selectedMeshRenderer = meshRenderer;
                     break;
                 }
-                
+
                 if (selectedMeshRenderer != null && MeshRenderers.Contains(selectedMeshRenderer))
                 {
                     selectedMeshRenderer.material = ConsumedMaterial;

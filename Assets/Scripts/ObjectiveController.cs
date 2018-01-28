@@ -11,12 +11,16 @@ public class ObjectiveIndicator
 {
     [Range(0, 200)]
     public float IndicatorDistance;
+
     [Range(0f, 1f)]
     public float GrainIntensity;
+
     [Range(0, 10)]
     public float AnimatorSpeed;
+
     [Range(0f, 1f)]
     public float ProximityFill;
+
     [Range(0f, 1f)]
     public float InterferenceVolume;
 }
@@ -29,7 +33,7 @@ public class ObjectiveController : MonoBehaviour
     public static ObjectiveController Instance { get; private set; }
 
     public int ObjectivePointAmount = 5;
-    
+
     public ObjectiveIndicator LowIndicator;
     public ObjectiveIndicator MediumIndicator;
     public ObjectiveIndicator HighIndicator;
@@ -57,14 +61,14 @@ public class ObjectiveController : MonoBehaviour
 
     // Start.
     private void Start()
-	{
+    {
         // Initial grain settings.
         var grainSettings = PostProcessingProfile.grain.settings;
         grainSettings.intensity = DefaultIndicator.GrainIntensity;
         PostProcessingProfile.grain.settings = grainSettings;
 
         StartCoroutine(InitialWaitTime());
-	}
+    }
 
     private IEnumerator InitialWaitTime()
     {

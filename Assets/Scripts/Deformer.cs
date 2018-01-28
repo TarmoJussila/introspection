@@ -7,65 +7,66 @@ using UnityEngine;
 /// </summary>
 public class Deformer : MonoBehaviour
 {
-	[Range(0, 3)]
-	public float MinRockSize;
-	[Range(5, 15)]
-	public float MaxRockSize;
+    [Range(0, 3)]
+    public float MinRockSize;
 
-	public float Scale = 1;
-	public float Speed = 1;
-	public bool RecalculateNormals = true;
+    [Range(5, 15)]
+    public float MaxRockSize;
 
-	private Vector3[] baseVertices;
-	private Perlin noise = new Perlin();
+    public float Scale = 1;
+    public float Speed = 1;
+    public bool RecalculateNormals = true;
 
-	public GameObject Planet;
+    private Vector3[] baseVertices;
+    private Perlin noise = new Perlin();
 
-	private MeshRenderer renderer;
-	private Mesh mesh;
-	private MeshCollider collider;
+    public GameObject Planet;
 
-	// Use this for initialization
-	void Start()
-	{
-		mesh = GetComponent<MeshFilter>().mesh;
-		baseVertices = mesh.vertices;
+    private MeshRenderer renderer;
+    private Mesh mesh;
+    private MeshCollider collider;
 
-		collider = GetComponent<MeshCollider>();
+    // Use this for initialization
+    private void Start()
+    {
+        mesh = GetComponent<MeshFilter>().mesh;
+        baseVertices = mesh.vertices;
 
-		DeformMesh();
-	}
+        collider = GetComponent<MeshCollider>();
 
-	void DeformMesh()
-	{
-		float newScale = Random.Range(MinRockSize, MaxRockSize);
-		transform.localScale = new Vector3(newScale, newScale, newScale);
+        DeformMesh();
+    }
 
-		var vertices = new Vector3[baseVertices.Length];
+    private void DeformMesh()
+    {
+        float newScale = Random.Range(MinRockSize, MaxRockSize);
+        transform.localScale = new Vector3(newScale, newScale, newScale);
 
-		var timex = Time.time * Speed;
-		var timey = Time.time * Speed;
-		var timez = Time.time * Speed;
+        var vertices = new Vector3[baseVertices.Length];
 
-		for (var i = 0; i < vertices.Length; i++)
-		{
-			var vertex = baseVertices[i];
+        var timex = Time.time * Speed;
+        var timey = Time.time * Speed;
+        var timez = Time.time * Speed;
 
-			vertex.x += noise.Noise(timex + vertex.x, timex + vertex.y, timex + vertex.z) * Scale;
-			vertex.y += noise.Noise(timey + vertex.x, timey + vertex.y, timey + vertex.z) * Scale;
-			vertex.z += noise.Noise(timez + vertex.x, timez + vertex.y, timez + vertex.z) * Scale;
+        for (var i = 0; i < vertices.Length; i++)
+        {
+            var vertex = baseVertices[i];
 
-			vertices[i] = vertex;
-		}
+            vertex.x += noise.Noise(timex + vertex.x, timex + vertex.y, timex + vertex.z) * Scale;
+            vertex.y += noise.Noise(timey + vertex.x, timey + vertex.y, timey + vertex.z) * Scale;
+            vertex.z += noise.Noise(timez + vertex.x, timez + vertex.y, timez + vertex.z) * Scale;
 
-		mesh.vertices = vertices;
+            vertices[i] = vertex;
+        }
 
-		if (RecalculateNormals)
+        mesh.vertices = vertices;
+
+        if (RecalculateNormals)
         {
             mesh.RecalculateNormals();
         }
 
-		mesh.RecalculateBounds();
-		collider.sharedMesh = mesh;
-	}
+        mesh.RecalculateBounds();
+        collider.sharedMesh = mesh;
+    }
 }
