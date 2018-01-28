@@ -44,6 +44,8 @@ public class ObjectiveController : MonoBehaviour
 
     private ObjectiveIndicator currentIndicator;
 
+    private bool checkDistance = true;
+
     public float InterferenceFillVariance = 0.1f;
     public float InterferenceTime = 0.05f;
 
@@ -107,18 +109,22 @@ public class ObjectiveController : MonoBehaviour
 
         if (closestDistance < HighIndicator.IndicatorDistance)
         {
+            checkDistance = false;
             currentIndicator = HighIndicator;
         }
         else if (closestDistance < MediumIndicator.IndicatorDistance)
         {
+            checkDistance = false;
             currentIndicator = MediumIndicator;
         }
         else if (closestDistance < LowIndicator.IndicatorDistance)
         {
+            checkDistance = true;
             currentIndicator = LowIndicator;
         }
         else
         {
+            checkDistance = true;
             currentIndicator = DefaultIndicator;
         }
 
@@ -135,7 +141,10 @@ public class ObjectiveController : MonoBehaviour
 
         Debug.Log("Closest distance: " + closestDistance + " / Objectives available: " + isAnyObjectiveAvailable);
 
-        Player.Instance.CheckNearestPoint();
+        if (checkDistance)
+            Player.Instance.CheckNearestPoint();
+        else
+            ObjectiveHandler.Instance.ShowDirectionArrow(DirectionType.None);
 
         yield return new WaitForSeconds(DistanceCheckWaitTime);
 

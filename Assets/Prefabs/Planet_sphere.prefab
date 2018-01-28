@@ -112,6 +112,8 @@ MonoBehaviour:
   SpawnsPerLoop: 50
   Deform: 0
   SpawnObstacles: 1
+  RockChance: 35
+  CrystalChance: 5
   RockPrefab: {fileID: 1266955762848042, guid: 68284bd8b8f07e246abf8ed1c96268cb, type: 2}
   CrystalPrefab: {fileID: 1507677605079984, guid: e21b5ab70f747de4f9c0dc949b8d165d,
     type: 2}

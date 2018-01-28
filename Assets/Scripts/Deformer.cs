@@ -10,7 +10,7 @@ public class Deformer : MonoBehaviour
     [Range(0, 3)]
     public float MinRockSize;
 
-    [Range(5, 15)]
+    [Range(5, 50)]
     public float MaxRockSize;
 
     public float Scale = 1;

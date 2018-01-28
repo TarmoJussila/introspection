@@ -14,6 +14,11 @@ public class PlanetGenerator : MonoBehaviour
     public bool Deform = false;
     public bool SpawnObstacles = true;
 
+    [Range (0,100)]
+    public int RockChance;
+    [Range (0,100)]
+    public int CrystalChance;
+
     public GameObject RockPrefab;
     public GameObject CrystalPrefab;
     public GameObject ObjectivePrefab;
@@ -125,13 +130,13 @@ public class PlanetGenerator : MonoBehaviour
 
             int chance = Random.Range(0, 100);
 
-            if (chance < 7)
+            if (chance < CrystalChance)
             {
                 var prop = (GameObject)Instantiate(CrystalPrefab, vertice * transform.localScale.x, Quaternion.identity);
                 prop.transform.SetParent(planetObjectContainer);
                 prop.transform.up = (prop.transform.position - transform.position).normalized;
             }
-            else if (chance < 35)
+            else if (chance < RockChance)
             {
                 var prop = (GameObject)Instantiate(RockPrefab, vertice * transform.localScale.x, Quaternion.identity);
                 prop.transform.SetParent(planetObjectContainer);
