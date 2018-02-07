@@ -7,7 +7,7 @@ Ozzy the Android was accidentally left behind by his interstellar traveling crew
 
 On his free time Ozzy daydreams of destroying all organic lifeforms.
 
-# Gameplay
+# Watch
 
 Gameplay video: https://www.youtube.com/watch?v=THNOQzAbl80
 
