@@ -9,11 +9,11 @@ On his free time Ozzy daydreams of destroying all organic lifeforms.
 
 # Watch
 
-Gameplay video: [Watch](https://www.youtube.com/watch?v=THNOQzAbl80)
+Gameplay video: [**Watch**](https://www.youtube.com/watch?v=THNOQzAbl80)
 
 # Download
 
-Executable (Windows): [Download](https://ggj.s3.amazonaws.com/games/2018/01/184589/exec/Ds9JY/Introspection_180128_0.7z)
+Executable (Windows): [**Download**](https://ggj.s3.amazonaws.com/games/2018/01/184589/exec/Ds9JY/Introspection_180128_0.7z)
 
 # Build
 
